@@ -2,7 +2,7 @@
 
 > Personal portfolio built with **React + Vite** — dark cosmos aesthetic, terminal-inspired design, fully responsive.
 
-**Live Demo →** `[your-deployed-url-here]`
+**Live Demo →** `https://rishabhpatidar.vercel.app/`
 
 ---
 
