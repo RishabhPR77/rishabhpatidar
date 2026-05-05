@@ -272,7 +272,7 @@ export default function Hero() {
               {/* Bottom row: social links */}
               <div style={{ display: 'flex', gap: '0.6rem', marginTop: '2rem' }}>
                 {[
-                  { label: 'GitHub', href: 'https://github.com/rishabhpatidar' },
+                  { label: 'GitHub', href: 'https://github.com/RishabhPR77' },
                   { label: 'LinkedIn', href: 'https://linkedin.com/in/rishabh-ptdr' },
                   { label: 'Email', href: 'mailto:rishabhpatidar400@gmail.com' },
                 ].map(s => (
