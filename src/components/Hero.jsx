@@ -72,6 +72,76 @@ function Corner({ pos }) {
   );
 }
 
+
+function ResumeDownloads() {
+  const resumes = [
+    {
+      label: 'Data Science',
+      sub: 'Analytics · EDA · Modelling',
+      file: '/Rishabh_Patidar_DS.pdf',
+      color: 'var(--cyan)',
+      colorRaw: '0,212,255',
+    },
+    {
+      label: 'ML Engineering',
+      sub: 'CV · LLM · Deployment',
+      file: '/Rishabh_Patidar_ML.pdf',
+      color: '#a855f7',
+      colorRaw: '168,85,247',
+    },
+  ];
+
+  return (
+    <div style={{ animation: 'fadeUp 0.6s ease 0.65s both' }}>
+      <div style={{
+        fontFamily: 'var(--font-mono)', fontSize: '0.62rem',
+        color: 'var(--text3)', letterSpacing: '0.12em', textTransform: 'uppercase',
+        marginBottom: '0.6rem',
+      }}>⬇ Download Resume</div>
+      <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+        {resumes.map(r => (
+          <a
+            key={r.label}
+            href={r.file}
+            download
+            style={{
+              display: 'flex', flexDirection: 'column',
+              padding: '0.6rem 1.1rem',
+              border: `1px solid rgba(${r.colorRaw},0.2)`,
+              borderRadius: '6px',
+              background: `rgba(${r.colorRaw},0.04)`,
+              transition: 'all 0.2s',
+              textDecoration: 'none',
+              minWidth: '140px',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = `rgba(${r.colorRaw},0.1)`;
+              e.currentTarget.style.borderColor = `rgba(${r.colorRaw},0.45)`;
+              e.currentTarget.style.transform = 'translateY(-1px)';
+              e.currentTarget.style.boxShadow = `0 4px 16px rgba(${r.colorRaw},0.15)`;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = `rgba(${r.colorRaw},0.04)`;
+              e.currentTarget.style.borderColor = `rgba(${r.colorRaw},0.2)`;
+              e.currentTarget.style.transform = 'none';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            <span style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.72rem',
+              fontWeight: 600, color: r.color, letterSpacing: '0.04em',
+            }}>{r.label} ↓</span>
+            <span style={{
+              fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
+              color: 'var(--text3)', marginTop: '0.15rem', letterSpacing: '0.06em',
+            }}>{r.sub}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Hero() {
   const [roleIdx, setRoleIdx] = useState(0);
   const [displayed, setDisplayed] = useState('');
@@ -330,6 +400,7 @@ export default function Hero() {
             <div style={{
               display: 'flex', gap: '0.75rem', flexWrap: 'wrap',
               animation: 'fadeUp 0.6s ease 0.55s both',
+              marginBottom: '1rem',
             }}>
               <a href="#projects" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
@@ -367,6 +438,9 @@ export default function Hero() {
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,140,66,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,140,66,0.25)'; e.currentTarget.style.transform = 'none'; }}
               >✉ Hire Me</a>
             </div>
+
+            {/* Resume downloads */}
+            <ResumeDownloads />
           </div>
 
         </div>

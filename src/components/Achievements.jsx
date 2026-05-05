@@ -150,7 +150,7 @@ export function Contact() {
                 onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--cyan)'; e.currentTarget.style.color = 'var(--cyan)'; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text2)'; }}
               >in LinkedIn</a>
-              <a href="https://github.com/RishabhPR77" target="_blank" rel="noopener" style={{
+              <a href="https://github.com/rishabhpatidar" target="_blank" rel="noopener" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                 border: '1px solid var(--border)', color: 'var(--text2)',
                 fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.05em',
@@ -164,9 +164,32 @@ export function Contact() {
 
             {/* Phone */}
             <div style={{
-              marginTop: '2rem', fontFamily: 'var(--font-mono)', fontSize: '0.78rem',
+              marginTop: '1.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.78rem',
               color: 'var(--text3)',
             }}>+91 9098729516</div>
+
+            {/* Resume downloads */}
+            <div style={{ marginTop: '2rem' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: 'var(--text3)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.7rem' }}>⬇ Download Resume</div>
+              <div style={{ display: 'flex', gap: '0.6rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                {[
+                  { label: 'Data Science', sub: 'Analytics · EDA · Modelling', file: '/Rishabh_Patidar_DS.pdf', color: 'var(--cyan)', raw: '0,212,255' },
+                  { label: 'ML Engineering', sub: 'CV · LLM · Deployment', file: '/Rishabh_Patidar_ML.pdf', color: '#a855f7', raw: '168,85,247' },
+                ].map(r => (
+                  <a key={r.label} href={r.file} download style={{
+                    display: 'flex', flexDirection: 'column', padding: '0.6rem 1.2rem',
+                    border: `1px solid rgba(${r.raw},0.2)`, borderRadius: '6px',
+                    background: `rgba(${r.raw},0.04)`, transition: 'all 0.2s', minWidth: '145px',
+                  }}
+                    onMouseEnter={e => { e.currentTarget.style.background = `rgba(${r.raw},0.1)`; e.currentTarget.style.borderColor = `rgba(${r.raw},0.45)`; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = `rgba(${r.raw},0.04)`; e.currentTarget.style.borderColor = `rgba(${r.raw},0.2)`; e.currentTarget.style.transform = 'none'; }}
+                  >
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, color: r.color }}>{r.label} ↓</span>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text3)', marginTop: '0.15rem' }}>{r.sub}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
