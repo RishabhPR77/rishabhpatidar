@@ -22,19 +22,23 @@
   --font-body: 'Instrument Sans', sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+/* Horizontal slide layout — no page-level scrolling */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
+/* Thin scrollbar inside slides */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 2px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.3); border-radius: 2px; }
 
 ::selection { background: var(--cyan-dim); color: var(--cyan); }
 

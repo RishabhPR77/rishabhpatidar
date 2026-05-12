@@ -117,8 +117,8 @@ export function Contact() {
 
             <h2 style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-              fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.02em',
+              fontSize: 'clamp(1.75rem, 2.8vw, 2.6rem)',
+              fontWeight: 700, lineHeight: 1.15, letterSpacing: '-0.01em',
               marginBottom: '1rem',
             }}>
               Building something<br />

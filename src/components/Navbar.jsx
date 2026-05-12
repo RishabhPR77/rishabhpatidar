@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 
-const links = ['About', 'Skills', 'Experience', 'Projects', 'Achievements'];
+const links = [
+  { label: 'About',        href: '#hero'         },
+  { label: 'Skills',       href: '#skills'       },
+  { label: 'Experience',   href: '#experience'   },
+  { label: 'Projects',     href: '#projects'     },
+  { label: 'Achievements', href: '#achievements' },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,14 +35,14 @@ export default function Navbar() {
       {/* Desktop links */}
       <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }} className="desktop-nav">
         {links.map(l => (
-          <a key={l} href={`#${l.toLowerCase()}`} style={{
+          <a key={l.label} href={l.href} style={{
             fontFamily: 'var(--font-mono)', fontSize: '0.75rem', letterSpacing: '0.08em',
             color: 'var(--text2)', textTransform: 'uppercase',
             transition: 'color 0.2s',
           }}
             onMouseEnter={e => e.target.style.color = 'var(--cyan)'}
             onMouseLeave={e => e.target.style.color = 'var(--text2)'}
-          >{l}</a>
+          >{l.label}</a>
         ))}
         <a href="mailto:rishabhpatidar400@gmail.com" style={{
           fontFamily: 'var(--font-mono)', fontSize: '0.75rem', letterSpacing: '0.08em',
