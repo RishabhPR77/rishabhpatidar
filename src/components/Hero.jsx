@@ -142,7 +142,7 @@ function ResumeDownloads() {
   );
 }
 
-export default function Hero() {
+export default function Hero({ goTo }) {
   const [roleIdx, setRoleIdx] = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [deleting, setDeleting] = useState(false);
@@ -402,29 +402,29 @@ export default function Hero() {
               animation: 'fadeUp 0.6s ease 0.55s both',
               marginBottom: '1rem',
             }}>
-              <a href="#projects" style={{
+              <button onClick={() => goTo && goTo(3)} style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
                 background: 'var(--cyan)', color: '#04040a',
                 fontFamily: 'var(--font-mono)', fontSize: '0.78rem', letterSpacing: '0.05em', fontWeight: 600,
                 padding: '0.78rem 1.6rem', borderRadius: '6px',
                 transition: 'all 0.2s', boxShadow: '0 4px 24px rgba(0,212,255,0.25)',
-                whiteSpace: 'nowrap',
+                whiteSpace: 'nowrap', border: 'none', cursor: 'pointer',
               }}
                 onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 36px rgba(0,212,255,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
                 onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,212,255,0.25)'; e.currentTarget.style.transform = 'none'; }}
-              >View Projects →</a>
+              >View Projects →</button>
 
-              <a href="#skills" style={{
+              <button onClick={() => goTo && goTo(1)} style={{
                 display: 'inline-flex', alignItems: 'center',
                 border: '1px solid rgba(0,212,255,0.2)', color: 'var(--text2)',
                 fontFamily: 'var(--font-mono)', fontSize: '0.78rem', letterSpacing: '0.05em',
                 padding: '0.78rem 1.6rem', borderRadius: '6px',
                 transition: 'all 0.2s', whiteSpace: 'nowrap',
-                background: 'rgba(0,212,255,0.02)',
+                background: 'rgba(0,212,255,0.02)', cursor: 'pointer',
               }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0,212,255,0.45)'; e.currentTarget.style.color = 'var(--cyan)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,212,255,0.2)'; e.currentTarget.style.color = 'var(--text2)'; e.currentTarget.style.transform = 'none'; }}
-              >Explore Skills</a>
+              >Explore Skills</button>
 
               <a href="mailto:rishabhpatidar400@gmail.com" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',

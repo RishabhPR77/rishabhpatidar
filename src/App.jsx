@@ -95,7 +95,7 @@ export default function App() {
           >
             {/* Slide content */}
             <div style={{ minHeight: '100vh' }}>
-              <Comp />
+              <Comp goTo={i === 0 ? goTo : undefined} />
             </div>
           </div>
         );
