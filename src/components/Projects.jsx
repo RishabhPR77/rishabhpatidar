@@ -90,6 +90,28 @@ const projects = [
       'Integrated LLaMA-3.3-70B via Groq API for semantic brand-event synergy scoring, generating structured JSON negotiation reports deployed as a stateless FastAPI microservice.',
     ],
   },
+  {
+    id: 'code-archaeologist',
+    num: '05',
+    title: 'Code Archaeologist',
+    subtitle: 'RAG System for Git History Analysis',
+    color: '#f43f5e',
+    colorHex: '#f43f5e',
+    github: 'https://github.com/RishabhPR77/code-archaeology-rag',
+    live: 'https://code-archaeology-rag.streamlit.app',
+    tags: ['RAG', 'LLaMA-3.3-70B', 'Pinecone', 'NetworkX', 'Groq API', 'Streamlit', 'BGE Embeddings', 'BM25'],
+    metrics: [
+      { val: '60/40', label: 'Dense/BM25 Hybrid' },
+      { val: '6', label: 'Analysis Modes' },
+      { val: 'LLaMA 3.3', label: 'LLM Backend' },
+      { val: 'Multi-repo', label: 'Support' },
+    ],
+    bullets: [
+      'Built a full RAG pipeline that ingests Git commit history via GitPython + GitHub API, embeds chunks with BAAI/bge-small-en-v1.5 into Pinecone per-repo namespaces — answering "why" questions over any public codebase in plain English.',
+      'Implemented hybrid search combining 60% dense vector retrieval and 40% BM25 keyword matching so exact function names and file paths are found alongside conceptual queries, with LLaMA-3.3-70B generating commit-cited grounded answers.',
+      'Deployed a 6-page Streamlit app (Ask, File Timeline, Hot Files, Co-Change Analysis, Author Breakdown, Multi-repo Ingest) powered by a NetworkX knowledge graph linking commits temporally across files.',
+    ],
+  },
 ];
 
 /* ── Modal ── */
