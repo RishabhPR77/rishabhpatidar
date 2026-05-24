@@ -180,7 +180,7 @@ export function Contact() {
             {/* Resume download */}
             <div style={{ marginTop: '2rem' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: 'var(--text3)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.7rem' }}>⬇ Download Resume</div>
-              <a href="/Rishabh_Patidar.pdf" download style={{
+              <a href="/Rishabh Patidar.pdf" download style={{
                 display: 'inline-flex', flexDirection: 'column', padding: '0.6rem 1.4rem',
                 border: '1px solid rgba(0,212,255,0.2)', borderRadius: '6px',
                 background: 'rgba(0,212,255,0.04)', transition: 'all 0.2s', textDecoration: 'none',

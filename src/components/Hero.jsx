@@ -82,7 +82,7 @@ function ResumeDownload() {
         marginBottom: '0.6rem',
       }}>⬇ Download Resume</div>
       <a
-        href="/Rishabh_Patidar.pdf"
+        href="/Rishabh Patidar.pdf"
         download
         style={{
           display: 'inline-flex', flexDirection: 'column',
