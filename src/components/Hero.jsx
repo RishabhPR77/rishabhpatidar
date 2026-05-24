@@ -73,24 +73,7 @@ function Corner({ pos }) {
 }
 
 
-function ResumeDownloads() {
-  const resumes = [
-    {
-      label: 'Data Science',
-      sub: 'Analytics · EDA · Modelling',
-      file: '/Rishabh_Patidar_DS.pdf',
-      color: 'var(--cyan)',
-      colorRaw: '0,212,255',
-    },
-    {
-      label: 'ML Engineering',
-      sub: 'CV · LLM · Deployment',
-      file: '/Rishabh_Patidar_ML.pdf',
-      color: '#a855f7',
-      colorRaw: '168,85,247',
-    },
-  ];
-
+function ResumeDownload() {
   return (
     <div style={{ animation: 'fadeUp 0.6s ease 0.65s both' }}>
       <div style={{
@@ -98,46 +81,40 @@ function ResumeDownloads() {
         color: 'var(--text3)', letterSpacing: '0.12em', textTransform: 'uppercase',
         marginBottom: '0.6rem',
       }}>⬇ Download Resume</div>
-      <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
-        {resumes.map(r => (
-          <a
-            key={r.label}
-            href={r.file}
-            download
-            style={{
-              display: 'flex', flexDirection: 'column',
-              padding: '0.6rem 1.1rem',
-              border: `1px solid rgba(${r.colorRaw},0.2)`,
-              borderRadius: '6px',
-              background: `rgba(${r.colorRaw},0.04)`,
-              transition: 'all 0.2s',
-              textDecoration: 'none',
-              minWidth: '140px',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = `rgba(${r.colorRaw},0.1)`;
-              e.currentTarget.style.borderColor = `rgba(${r.colorRaw},0.45)`;
-              e.currentTarget.style.transform = 'translateY(-1px)';
-              e.currentTarget.style.boxShadow = `0 4px 16px rgba(${r.colorRaw},0.15)`;
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = `rgba(${r.colorRaw},0.04)`;
-              e.currentTarget.style.borderColor = `rgba(${r.colorRaw},0.2)`;
-              e.currentTarget.style.transform = 'none';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
-          >
-            <span style={{
-              fontFamily: 'var(--font-mono)', fontSize: '0.72rem',
-              fontWeight: 600, color: r.color, letterSpacing: '0.04em',
-            }}>{r.label} ↓</span>
-            <span style={{
-              fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
-              color: 'var(--text3)', marginTop: '0.15rem', letterSpacing: '0.06em',
-            }}>{r.sub}</span>
-          </a>
-        ))}
-      </div>
+      <a
+        href="/Rishabh_Patidar.pdf"
+        download
+        style={{
+          display: 'inline-flex', flexDirection: 'column',
+          padding: '0.6rem 1.4rem',
+          border: '1px solid rgba(0,212,255,0.2)',
+          borderRadius: '6px',
+          background: 'rgba(0,212,255,0.04)',
+          transition: 'all 0.2s',
+          textDecoration: 'none',
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.background = 'rgba(0,212,255,0.1)';
+          e.currentTarget.style.borderColor = 'rgba(0,212,255,0.45)';
+          e.currentTarget.style.transform = 'translateY(-1px)';
+          e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,212,255,0.15)';
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.background = 'rgba(0,212,255,0.04)';
+          e.currentTarget.style.borderColor = 'rgba(0,212,255,0.2)';
+          e.currentTarget.style.transform = 'none';
+          e.currentTarget.style.boxShadow = 'none';
+        }}
+      >
+        <span style={{
+          fontFamily: 'var(--font-mono)', fontSize: '0.72rem',
+          fontWeight: 600, color: 'var(--cyan)', letterSpacing: '0.04em',
+        }}>Rishabh Patidar — Resume ↓</span>
+        <span style={{
+          fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
+          color: 'var(--text3)', marginTop: '0.15rem', letterSpacing: '0.06em',
+        }}>AI · ML · Data Science</span>
+      </a>
     </div>
   );
 }
@@ -440,7 +417,7 @@ export default function Hero({ goTo }) {
             </div>
 
             {/* Resume downloads */}
-            <ResumeDownloads />
+            <ResumeDownload />
           </div>
 
         </div>

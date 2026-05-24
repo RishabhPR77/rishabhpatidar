@@ -6,34 +6,28 @@ const skillGroups = [
     skills: ['Python', 'SQL', 'Java', 'C/C++'],
   },
   {
-    label: 'AI / LLM',
+    label: 'AI / ML',
     color: '#f43f5e',
     icon: '◈',
-    skills: ['RAG', 'LLaMA-3.3-70B', 'Groq API', 'Prompt Engineering', 'Vector Embeddings', 'Hybrid Search', 'Knowledge Graphs', 'Pinecone', 'ChromaDB', 'BGE Embeddings', 'BM25'],
+    skills: ['Machine Learning', 'NLP', 'RAG', 'LLaMA-3.3-70B', 'Vector Embeddings', 'Prompt Engineering', 'Groq API', 'Pinecone', 'ChromaDB'],
   },
   {
-    label: 'ML / Modelling',
+    label: 'ML Frameworks',
     color: '#a855f7',
     icon: '⌬',
-    skills: ['Scikit-learn', 'XGBoost', 'Random Forest', 'Gradient Boosting', 'KMeans', 'PCA', 'SHAP', 'SMOTE', 'RFM Analysis', 'Feature Engineering', 'Hyperparameter Tuning', 'A/B Testing', 'Hypothesis Testing'],
+    skills: ['Scikit-learn', 'XGBoost', 'Random Forest', 'Gradient Boosting', 'KMeans', 'PCA', 'SHAP', 'SMOTE', 'Feature Engineering', 'Hyperparameter Tuning', 'Statistical Analysis'],
   },
   {
-    label: 'Data & Analytics',
+    label: 'Data & Tools',
     color: 'var(--amber)',
     icon: '∑',
-    skills: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly', 'SciPy', 'Statsmodels', 'Excel'],
+    skills: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly', 'SciPy', 'FastAPI', 'Streamlit', 'Git', 'Docker', 'Jupyter'],
   },
   {
-    label: 'Deployment & Tools',
+    label: 'Database',
     color: '#22c55e',
-    icon: '⚙',
-    skills: ['Streamlit', 'FastAPI', 'Pydantic V2', 'Git', 'GitPython', 'Docker', 'Jupyter', 'Google Colab'],
-  },
-  {
-    label: 'Computer Vision',
-    color: 'var(--cyan)',
-    icon: '◉',
-    skills: ['InsightFace', 'MediaPipe', 'OpenCV', 'ArcFace Embeddings', 'Person Re-ID'],
+    icon: '⬡',
+    skills: ['SQL', 'Schema Design', 'Complex Queries', 'ETL Pipelines', 'MongoDB'],
   },
 ];
 

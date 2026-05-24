@@ -4,7 +4,7 @@ const experience = {
   title: 'Undergraduate Research Assistant',
   company: 'Madhav Institute of Technology and Science',
   location: 'Gwalior, MP',
-  period: 'Jan – Apr 2026',
+  period: 'Jan – May 2026',
   bullets: [
     'Conducted end-to-end EDA on event marketing datasets covering 50+ features, identifying key footfall drivers through correlation analysis and domain-informed feature selection — reducing model noise by 30%.',
     'Built a two-stage XGBoost Regressor pipeline (R² = 0.96) with a Dynamic Physical Clamping algorithm enforcing venue-capacity constraints at inference — achieving zero invalid output predictions across all test cases.',

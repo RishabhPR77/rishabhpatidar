@@ -2,10 +2,18 @@ import { SectionHeader } from './Skills';
 
 const achievements = [
   {
+    rank: '📜',
+    title: 'Mathematical Foundations of ML',
+    event: 'NPTEL Certification',
+    org: 'IIT Madras',
+    date: '2025 · Score: 73/100',
+    color: 'var(--cyan)',
+  },
+  {
     rank: '🥈',
     title: '1st Runner-Up',
     event: "SSH '26 National Hackathon",
-    org: 'SSH',
+    org: 'Symbiosis University of Applied Sciences, Indore',
     date: 'Feb 2026',
     color: '#c0c0c0',
   },
@@ -69,7 +77,8 @@ export function Achievements() {
                 color: 'var(--text)', lineHeight: 1.3, marginBottom: '0.5rem',
               }}>{a.title}</div>
               <div style={{ color: a.color, fontSize: '0.9rem', fontFamily: 'var(--font-body)', fontWeight: 500 }}>{a.event}</div>
-              <div style={{ color: 'var(--text3)', fontSize: '0.8rem', fontFamily: 'var(--font-mono)', marginTop: '0.3rem' }}>{a.org} · {a.date}</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text2)', fontWeight: 500, marginTop: '0.3rem' }}>{a.org}</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: a.color, marginTop: '0.2rem', opacity: 0.85 }}>{a.date}</div>
 
               {/* Decorative corner */}
               <div style={{
@@ -150,7 +159,7 @@ export function Contact() {
                 onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--cyan)'; e.currentTarget.style.color = 'var(--cyan)'; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text2)'; }}
               >in LinkedIn</a>
-              <a href="https://github.com/rishabhpatidar" target="_blank" rel="noopener" style={{
+              <a href="https://github.com/RishabhPR77" target="_blank" rel="noopener" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                 border: '1px solid var(--border)', color: 'var(--text2)',
                 fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.05em',
@@ -168,27 +177,20 @@ export function Contact() {
               color: 'var(--text3)',
             }}>+91 9098729516</div>
 
-            {/* Resume downloads */}
+            {/* Resume download */}
             <div style={{ marginTop: '2rem' }}>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: 'var(--text3)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.7rem' }}>⬇ Download Resume</div>
-              <div style={{ display: 'flex', gap: '0.6rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                {[
-                  { label: 'Data Science', sub: 'Analytics · EDA · Modelling', file: '/Rishabh_Patidar_DS.pdf', color: 'var(--cyan)', raw: '0,212,255' },
-                  { label: 'ML Engineering', sub: 'CV · LLM · Deployment', file: '/Rishabh_Patidar_ML.pdf', color: '#a855f7', raw: '168,85,247' },
-                ].map(r => (
-                  <a key={r.label} href={r.file} download style={{
-                    display: 'flex', flexDirection: 'column', padding: '0.6rem 1.2rem',
-                    border: `1px solid rgba(${r.raw},0.2)`, borderRadius: '6px',
-                    background: `rgba(${r.raw},0.04)`, transition: 'all 0.2s', minWidth: '145px',
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.background = `rgba(${r.raw},0.1)`; e.currentTarget.style.borderColor = `rgba(${r.raw},0.45)`; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = `rgba(${r.raw},0.04)`; e.currentTarget.style.borderColor = `rgba(${r.raw},0.2)`; e.currentTarget.style.transform = 'none'; }}
-                  >
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, color: r.color }}>{r.label} ↓</span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text3)', marginTop: '0.15rem' }}>{r.sub}</span>
-                  </a>
-                ))}
-              </div>
+              <a href="/Rishabh_Patidar.pdf" download style={{
+                display: 'inline-flex', flexDirection: 'column', padding: '0.6rem 1.4rem',
+                border: '1px solid rgba(0,212,255,0.2)', borderRadius: '6px',
+                background: 'rgba(0,212,255,0.04)', transition: 'all 0.2s', textDecoration: 'none',
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0,212,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(0,212,255,0.45)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(0,212,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(0,212,255,0.2)'; e.currentTarget.style.transform = 'none'; }}
+              >
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, color: 'var(--cyan)' }}>Rishabh Patidar — Resume ↓</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text3)', marginTop: '0.15rem' }}>AI · ML · Data Science</span>
+              </a>
             </div>
           </div>
         </div>
