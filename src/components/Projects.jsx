@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { SectionHeader } from './Skills';
 
 const projects = [
@@ -11,6 +12,8 @@ const projects = [
     colorHex: '#06b6d4',
     github: 'https://github.com/RishabhPR77/customer-churn',
     live: 'https://customer-churn-dunhumby.streamlit.app/',
+    thumbnail: '/thumbnails/churn.png',
+    isPrivate: false,
     tags: ['Scikit-learn', 'XGBoost', 'SHAP', 'SMOTE', 'Streamlit', 'SQL'],
     metrics: [
       { val: '2.5M+', label: 'Transactions' },
@@ -33,6 +36,8 @@ const projects = [
     colorHex: '#f59e0b',
     github: 'https://github.com/RishabhPR77/movie-success-predictor',
     live: 'https://movie-success-predictor-xu2vnp53g3jg8a3pmrr3k3.streamlit.app/',
+    thumbnail: '/thumbnails/cinemaiq.png',
+    isPrivate: false,
     tags: ['XGBoost', 'Scikit-learn', 'Streamlit', 'Plotly', 'Groq API', 'LLaMA 3.3'],
     metrics: [
       { val: '5', label: 'Models Benchmarked' },
@@ -55,6 +60,8 @@ const projects = [
     colorHex: '#a855f7',
     github: 'https://github.com/RishabhPR77/video-target-id',
     live: 'https://video-target-id-lnjmjrh3ap8jafch7wrbme.streamlit.app/',
+    thumbnail: '/thumbnails/vtis.png',
+    isPrivate: false,
     tags: ['InsightFace', 'MediaPipe', 'OpenCV', 'Streamlit', 'ArcFace 512-d'],
     metrics: [
       { val: '512-d', label: 'ArcFace Embeddings' },
@@ -77,6 +84,8 @@ const projects = [
     colorHex: '#22c55e',
     github: 'https://github.com/RishabhPR77/eventsight',
     live: '',
+    thumbnail: '/thumbnails/footfall.png',
+    isPrivate: false,
     tags: ['XGBoost', 'FastAPI', 'LLaMA-3.3-70B', 'Groq API', 'Pydantic V2'],
     metrics: [
       { val: 'R²=0.96', label: 'Model Accuracy' },
@@ -95,10 +104,12 @@ const projects = [
     num: '05',
     title: 'Code Archaeologist',
     subtitle: 'RAG System for Git History Analysis',
-    color: '#f43f5e',
-    colorHex: '#f43f5e',
-    github: 'https://github.com/RishabhPR77/code-archaeology-rag',
+    color: '#0ea5e9',
+    colorHex: '#0ea5e9',
+    github: '',
     live: 'https://code-archaeology-rag.streamlit.app',
+    thumbnail: '/thumbnails/code-arch.png',
+    isPrivate: false,
     tags: ['RAG', 'LLaMA-3.3-70B', 'Pinecone', 'NetworkX', 'Groq API', 'Streamlit', 'BGE Embeddings', 'BM25'],
     metrics: [
       { val: '60/40', label: 'Dense/BM25 Hybrid' },
@@ -114,10 +125,73 @@ const projects = [
   },
 ];
 
+/* ── Thumbnail component — image with fallback ── */
+function Thumbnail({ project, height = 160 }) {
+  const [failed, setFailed] = useState(false);
+  const c = project.colorHex;
+
+  if (failed || !project.thumbnail) {
+    // CSS stat-card fallback — special for footfall, generic gradient for others
+    return (
+      <div style={{
+        height, flexShrink: 0,
+        background: `linear-gradient(135deg, ${c}18 0%, ${c}06 100%)`,
+        borderBottom: `1px solid ${c}18`,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        {/* Grid pattern */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `linear-gradient(${c}10 1px, transparent 1px), linear-gradient(90deg, ${c}10 1px, transparent 1px)`,
+          backgroundSize: '28px 28px',
+        }} />
+        {/* Center content */}
+        <div style={{ position: 'relative', textAlign: 'center' }}>
+          <div style={{
+            fontFamily: 'var(--font-display)', fontSize: '2rem',
+            fontWeight: 800, color: c, lineHeight: 1,
+            textShadow: `0 0 24px ${c}60`,
+          }}>{project.metrics[0].val}</div>
+          <div style={{
+            fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
+            color: `${c}99`, textTransform: 'uppercase',
+            letterSpacing: '0.12em', marginTop: '0.3rem',
+          }}>{project.metrics[0].label}</div>
+          {project.isPrivate && (
+            <div style={{
+              marginTop: '0.75rem',
+              fontFamily: 'var(--font-mono)', fontSize: '0.58rem',
+              color: `${c}80`, border: `1px solid ${c}30`,
+              padding: '0.2rem 0.6rem', borderRadius: '100px',
+              display: 'inline-block', letterSpacing: '0.1em',
+            }}>RESEARCH · PRIVATE</div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ height, flexShrink: 0, overflow: 'hidden', borderBottom: `1px solid ${c}18`, background: '#06060f' }}>
+      <img
+        src={project.thumbnail}
+        alt={project.title}
+        onError={() => setFailed(true)}
+        style={{
+          width: '100%', height: '100%',
+          objectFit: 'contain', objectPosition: 'center',
+          display: 'block', background: '#06060f',
+        }}
+      />
+    </div>
+  );
+}
+
 /* ── Modal ── */
 function ProjectModal({ project, onClose }) {
   const c = project.color;
-
+  const ch = project.colorHex;
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
@@ -128,13 +202,13 @@ function ProjectModal({ project, onClose }) {
     };
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div
       onClick={onClose}
       style={{
-        position: 'fixed', inset: 0, zIndex: 1000,
-        background: 'rgba(0,0,0,0.75)',
-        backdropFilter: 'blur(6px)',
+        position: 'fixed', inset: 0, zIndex: 9999,
+        background: 'rgba(0,0,0,0.78)',
+        backdropFilter: 'blur(8px)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         padding: '1.5rem',
         animation: 'fadeIn 0.2s ease',
@@ -144,10 +218,10 @@ function ProjectModal({ project, onClose }) {
         onClick={e => e.stopPropagation()}
         style={{
           background: 'var(--surface)',
-          border: `1px solid ${project.colorHex}30`,
+          border: `1px solid ${ch}30`,
           borderRadius: '16px',
-          width: '100%', maxWidth: '720px',
-          maxHeight: '85vh',
+          width: '100%', maxWidth: '740px',
+          maxHeight: '88vh',
           overflowY: 'auto',
           animation: 'slideUp 0.25s ease',
           scrollbarWidth: 'thin',
@@ -155,45 +229,37 @@ function ProjectModal({ project, onClose }) {
       >
         {/* Modal header */}
         <div style={{
-          padding: '2rem 2.5rem 1.5rem',
-          borderBottom: `1px solid ${project.colorHex}18`,
+          padding: '1.75rem 2.25rem 1.25rem',
+          borderBottom: `1px solid ${ch}18`,
           position: 'sticky', top: 0,
-          background: 'var(--surface)',
-          zIndex: 1,
+          background: 'var(--surface)', zIndex: 1,
           display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
         }}>
           <div style={{ flex: 1, paddingRight: '1rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.72rem',
-                color: c, opacity: 0.7,
-              }}>{project.num}</span>
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
-                color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.1em',
-              }}>{project.subtitle}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.45rem' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: c, opacity: 0.7 }}>{project.num}</span>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{project.subtitle}</span>
+              {project.isPrivate && (
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: `${ch}90`, border: `1px solid ${ch}30`, padding: '0.15rem 0.5rem', borderRadius: '100px', letterSpacing: '0.08em' }}>
+                  Research · Private
+                </span>
+              )}
             </div>
-            <h3 style={{
-              fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 700,
-              color: 'var(--text)', lineHeight: 1.25, margin: '0 0 1rem 0',
-            }}>{project.title}</h3>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 700, color: 'var(--text)', lineHeight: 1.25, margin: '0 0 1rem 0' }}>
+              {project.title}
+            </h3>
 
-            {/* Links — shown in header */}
+            {/* Links */}
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
               {project.github && (
-                <a
-                  href={project.github} target="_blank" rel="noopener"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                    fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.05em',
-                    padding: '0.4rem 0.9rem', borderRadius: '5px',
-                    textDecoration: 'none', whiteSpace: 'nowrap',
-                    border: `1px solid ${project.colorHex}35`,
-                    color: c, background: `${project.colorHex}10`,
-                    transition: 'all 0.2s',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.background = `${project.colorHex}20`; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = `${project.colorHex}10`; e.currentTarget.style.transform = 'none'; }}
+                <a href={project.github} target="_blank" rel="noopener" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                  fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.05em',
+                  padding: '0.4rem 0.9rem', borderRadius: '5px', textDecoration: 'none',
+                  border: `1px solid ${ch}35`, color: c, background: `${ch}10`, transition: 'all 0.2s',
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.background = `${ch}20`; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = `${ch}10`; e.currentTarget.style.transform = 'none'; }}
                 >
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.31.468-2.382 1.235-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.404c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.233 1.911 1.233 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/>
@@ -202,17 +268,13 @@ function ProjectModal({ project, onClose }) {
                 </a>
               )}
               {project.live && (
-                <a
-                  href={project.live} target="_blank" rel="noopener"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                    fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.05em',
-                    padding: '0.4rem 0.9rem', borderRadius: '5px',
-                    textDecoration: 'none', whiteSpace: 'nowrap',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    color: 'var(--text2)', background: 'rgba(255,255,255,0.04)',
-                    transition: 'all 0.2s',
-                  }}
+                <a href={project.live} target="_blank" rel="noopener" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                  fontFamily: 'var(--font-mono)', fontSize: '0.7rem', letterSpacing: '0.05em',
+                  padding: '0.4rem 0.9rem', borderRadius: '5px', textDecoration: 'none',
+                  border: '1px solid rgba(255,255,255,0.12)', color: 'var(--text2)',
+                  background: 'rgba(255,255,255,0.04)', transition: 'all 0.2s',
+                }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'var(--text)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = 'var(--text2)'; e.currentTarget.style.transform = 'none'; }}
                 >
@@ -226,75 +288,44 @@ function ProjectModal({ project, onClose }) {
               )}
             </div>
           </div>
-          <button
-            onClick={onClose}
-            style={{
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              color: 'var(--text2)', borderRadius: '8px',
-              width: '36px', height: '36px',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer', flexShrink: 0,
-              fontSize: '1.1rem', lineHeight: 1,
-              transition: 'all 0.2s',
-            }}
+          <button onClick={onClose} style={{
+            background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
+            color: 'var(--text2)', borderRadius: '8px', width: '36px', height: '36px',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'pointer', flexShrink: 0, fontSize: '1.1rem', transition: 'all 0.2s',
+          }}
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = 'var(--text)'; }}
             onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = 'var(--text2)'; }}
-            aria-label="Close"
           >✕</button>
         </div>
 
         {/* Modal body */}
-        <div style={{ padding: '2rem 2.5rem' }}>
-          {/* Tags */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '2rem' }}>
+        <div style={{ padding: '1.75rem 2.25rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.75rem' }}>
             {project.tags.map(t => (
               <span key={t} style={{
                 fontFamily: 'var(--font-mono)', fontSize: '0.67rem',
-                color: c, background: `${project.colorHex}12`,
-                border: `1px solid ${project.colorHex}28`,
+                color: c, background: `${ch}12`, border: `1px solid ${ch}28`,
                 padding: '0.25rem 0.6rem', borderRadius: '4px',
               }}>{t}</span>
             ))}
           </div>
-
-          {/* Metrics */}
-          <div style={{
-            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-            gap: '0.85rem', marginBottom: '2rem',
-          }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.85rem', marginBottom: '1.75rem' }}>
             {project.metrics.map(m => (
-              <div key={m.label} style={{
-                background: 'var(--surface2)', borderRadius: '8px',
-                padding: '1rem', textAlign: 'center',
-                border: `1px solid ${project.colorHex}15`,
-              }}>
-                <div style={{
-                  fontFamily: 'var(--font-display)', fontSize: '1.1rem',
-                  fontWeight: 700, color: c,
-                }}>{m.val}</div>
-                <div style={{
-                  fontFamily: 'var(--font-mono)', fontSize: '0.63rem',
-                  color: 'var(--text3)', textTransform: 'uppercase',
-                  letterSpacing: '0.08em', marginTop: '0.25rem',
-                }}>{m.label}</div>
+              <div key={m.label} style={{ background: 'var(--surface2)', borderRadius: '8px', padding: '1rem', textAlign: 'center', border: `1px solid ${ch}15` }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 700, color: c }}>{m.val}</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.63rem', color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '0.25rem' }}>{m.label}</div>
               </div>
             ))}
           </div>
-
-          {/* Bullets */}
-          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {project.bullets.map((b, i) => (
               <li key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                <span style={{
-                  color: c, fontFamily: 'var(--font-mono)',
-                  fontSize: '0.75rem', marginTop: '0.22rem', flexShrink: 0,
-                }}>▸</span>
+                <span style={{ color: c, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', marginTop: '0.22rem', flexShrink: 0 }}>▸</span>
                 <span style={{ color: 'var(--text2)', fontSize: '0.93rem', lineHeight: 1.7 }}>{b}</span>
               </li>
             ))}
           </ul>
-
         </div>
       </div>
 
@@ -302,7 +333,8 @@ function ProjectModal({ project, onClose }) {
         @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(24px) } to { opacity: 1; transform: translateY(0) } }
       `}</style>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -317,77 +349,62 @@ function ProjectCard({ project, onClick }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? `${c}08` : 'var(--surface)',
+        background: 'var(--surface)',
         border: `1px solid ${hovered ? c + '40' : 'var(--border2)'}`,
         borderRadius: '12px',
-        padding: '1.25rem 1.5rem',
         cursor: 'pointer',
         textAlign: 'left',
         width: '100%',
         transition: 'all 0.22s ease',
-        transform: hovered ? 'translateY(-2px)' : 'none',
-        boxShadow: hovered ? `0 8px 24px ${c}18` : 'none',
-        position: 'relative',
+        transform: hovered ? 'translateY(-3px)' : 'none',
+        boxShadow: hovered ? `0 8px 28px ${c}20` : 'none',
         overflow: 'hidden',
+        display: 'flex', flexDirection: 'column',
       }}
     >
-      {/* Accent line on left */}
-      <div style={{
-        position: 'absolute', left: 0, top: '16px', bottom: '16px',
-        width: '3px', borderRadius: '0 3px 3px 0',
-        background: c,
-        opacity: hovered ? 1 : 0.35,
-        transition: 'opacity 0.22s ease',
-      }} />
+      {/* Thumbnail */}
+      <Thumbnail project={project} height={130} />
 
-      <div style={{ paddingLeft: '0.5rem' }}>
-        {/* Number + subtitle row */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.45rem' }}>
-          <span style={{
-            fontFamily: 'var(--font-mono)', fontSize: '0.68rem',
-            color: c, opacity: 0.75,
-          }}>{project.num}</span>
-          <span style={{
-            fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
-            color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em',
-          }}>{project.subtitle}</span>
+      {/* Card content */}
+      <div style={{ padding: '1.1rem 1.25rem', position: 'relative' }}>
+        {/* Accent line */}
+        <div style={{
+          position: 'absolute', left: 0, top: '12px', bottom: '12px',
+          width: '3px', borderRadius: '0 3px 3px 0',
+          background: c, opacity: hovered ? 1 : 0.35,
+          transition: 'opacity 0.22s ease',
+        }} />
+        <div style={{ paddingLeft: '0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: c, opacity: 0.75 }}>{project.num}</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{project.subtitle}</span>
+          </div>
+          <h3 style={{
+            fontFamily: 'var(--font-display)', fontSize: '0.92rem', fontWeight: 700,
+            color: hovered ? 'var(--text)' : 'var(--text2)',
+            lineHeight: 1.3, margin: '0 0 0.6rem 0',
+            transition: 'color 0.22s ease',
+          }}>{project.title}</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.28rem', alignItems: 'center' }}>
+            {project.tags.slice(0, 3).map(t => (
+              <span key={t} style={{
+                fontFamily: 'var(--font-mono)', fontSize: '0.58rem',
+                color: c, background: `${c}12`, border: `1px solid ${c}20`,
+                padding: '0.13rem 0.42rem', borderRadius: '3px',
+              }}>{t}</span>
+            ))}
+            {project.tags.length > 3 && (
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--text3)' }}>+{project.tags.length - 3} more</span>
+            )}
+          </div>
         </div>
-
-        {/* Title */}
-        <h3 style={{
-          fontFamily: 'var(--font-display)', fontSize: '0.95rem', fontWeight: 700,
-          color: hovered ? 'var(--text)' : 'var(--text2)',
-          lineHeight: 1.3, margin: '0 0 0.65rem 0',
-          transition: 'color 0.22s ease',
-        }}>{project.title}</h3>
-
-        {/* Tags (first 3 only) */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem', alignItems: 'center' }}>
-          {project.tags.slice(0, 3).map(t => (
-            <span key={t} style={{
-              fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
-              color: c, background: `${c}12`,
-              border: `1px solid ${c}20`,
-              padding: '0.15rem 0.45rem', borderRadius: '3px',
-            }}>{t}</span>
-          ))}
-          {project.tags.length > 3 && (
-            <span style={{
-              fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
-              color: 'var(--text3)',
-            }}>+{project.tags.length - 3} more</span>
-          )}
-        </div>
+        <div style={{
+          position: 'absolute', right: '1rem', top: '50%',
+          transform: `translateY(-50%) translateX(${hovered ? '0' : '4px'})`,
+          color: c, opacity: hovered ? 0.8 : 0,
+          transition: 'all 0.22s ease', fontSize: '0.85rem',
+        }}>→</div>
       </div>
-
-      {/* Arrow hint */}
-      <div style={{
-        position: 'absolute', right: '1.25rem', top: '50%',
-        transform: `translateY(-50%) translateX(${hovered ? '0' : '4px'})`,
-        color: c, opacity: hovered ? 0.8 : 0,
-        transition: 'all 0.22s ease',
-        fontSize: '0.9rem',
-      }}>→</div>
     </button>
   );
 }
@@ -400,37 +417,23 @@ export default function Projects() {
     <section id="projects" style={{ padding: '8rem 0' }}>
       <div className="container">
         <SectionHeader tag="04" title="Projects" subtitle="Work" />
-
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
           gap: '0.85rem',
           marginTop: '3rem',
         }}>
           {projects.map(p => (
-            <ProjectCard
-              key={p.id}
-              project={p}
-              onClick={() => setActiveProject(p)}
-            />
+            <ProjectCard key={p.id} project={p} onClick={() => setActiveProject(p)} />
           ))}
         </div>
-
         <p style={{
           fontFamily: 'var(--font-mono)', fontSize: '0.68rem',
           color: 'var(--text3)', textAlign: 'center',
           marginTop: '1.5rem', letterSpacing: '0.05em',
-        }}>
-          Click any card to view full details
-        </p>
+        }}>Click any card to view full details</p>
       </div>
-
-      {activeProject && (
-        <ProjectModal
-          project={activeProject}
-          onClose={() => setActiveProject(null)}
-        />
-      )}
+      {activeProject && <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />}
     </section>
   );
 }
