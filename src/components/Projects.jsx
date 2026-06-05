@@ -4,8 +4,32 @@ import { SectionHeader } from './Skills';
 
 const projects = [
   {
-    id: 'churn',
+    id: 'ai-interview',
     num: '01',
+    title: 'AI Interview Platform',
+    subtitle: "SSH '26 National Hackathon · Runner-Up",
+    color: '#6366f1',
+    colorHex: '#6366f1',
+    github: '',
+    live: '',
+    thumbnail: '/thumbnails/ai-interview.png',
+    isPrivate: true,
+    tags: ['FastAPI', 'LLaMA-3.3-70B', 'Whisper', 'MediaPipe', 'React', 'TypeScript'],
+    metrics: [
+      { val: 'Adaptive', label: 'Question Engine' },
+      { val: 'Multimodal', label: 'Behaviour Analysis' },
+      { val: 'Runner-Up', label: "SSH '26 Hackathon" },
+      { val: 'Full-Stack', label: 'React + FastAPI' },
+    ],
+    bullets: [
+      'Built an adaptive AI interview engine powered by LLaMA-3.3-70B via Groq API — generates role and resume-specific question banks, then dynamically selects follow-ups or injects curveballs based on answer quality and topic coverage gaps.',
+      'Engineered a real-time multimodal behavioural analysis pipeline fusing Whisper audio signals (WPM, filler words, confidence language score) with MediaPipe video signals (eye contact %, posture score, gaze direction, nervousness indicators including lip compression and brow furrow).',
+      'Deployed a full React/TypeScript frontend (Vite) with camera pre-check, live interview flow, session resume on reconnect, performance comparison across attempts, and one-click PDF report export — backed by a modular FastAPI scoring engine with customisable weighted rubrics.',
+    ],
+  },
+  {
+    id: 'churn',
+    num: '02',
     title: 'Customer Segmentation & Churn Prediction',
     subtitle: 'Revenue Intelligence at Scale',
     color: 'var(--cyan)',
@@ -29,7 +53,7 @@ const projects = [
   },
   {
     id: 'cinemaiq',
-    num: '02',
+    num: '03',
     title: 'CinemaIQ — Box Office Intelligence Platform',
     subtitle: 'AI-Powered Revenue Forecasting',
     color: 'var(--amber)',
@@ -53,7 +77,7 @@ const projects = [
   },
   {
     id: 'vtis',
-    num: '03',
+    num: '04',
     title: 'Video Target Identification System',
     subtitle: 'Forensic Biometric Analytics',
     color: '#a855f7',
@@ -77,7 +101,7 @@ const projects = [
   },
   {
     id: 'footfall',
-    num: '04',
+    num: '05',
     title: 'Event Footfall Prediction & Sponsorship Engine',
     subtitle: 'Research Project · LLM-Integrated ML Pipeline',
     color: '#22c55e',
@@ -101,7 +125,7 @@ const projects = [
   },
   {
     id: 'code-archaeologist',
-    num: '05',
+    num: '06',
     title: 'Code Archaeologist',
     subtitle: 'RAG System for Git History Analysis',
     color: '#0ea5e9',

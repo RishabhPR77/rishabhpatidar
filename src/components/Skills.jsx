@@ -3,13 +3,13 @@ const skillGroups = [
     label: 'Languages',
     color: 'var(--cyan)',
     icon: '{ }',
-    skills: ['Python', 'SQL', 'Java', 'C/C++'],
+    skills: ['Python', 'SQL', 'TypeScript', 'Java', 'C/C++'],
   },
   {
     label: 'AI / ML',
     color: '#f43f5e',
     icon: '◈',
-    skills: ['Machine Learning', 'NLP', 'RAG', 'LLaMA-3.3-70B', 'Vector Embeddings', 'Prompt Engineering', 'Groq API', 'Pinecone', 'ChromaDB'],
+    skills: ['Machine Learning', 'NLP', 'RAG', 'LLaMA-3.3-70B', 'Whisper (ASR)', 'Voice Recognition', 'Vector Embeddings', 'Prompt Engineering', 'Groq API', 'Pinecone', 'ChromaDB'],
   },
   {
     label: 'ML Frameworks',
@@ -28,6 +28,18 @@ const skillGroups = [
     color: '#22c55e',
     icon: '⬡',
     skills: ['SQL', 'Schema Design', 'Complex Queries', 'ETL Pipelines', 'MongoDB'],
+  },
+  {
+    label: 'Computer Vision',
+    color: '#0ea5e9',
+    icon: '◎',
+    skills: ['MediaPipe', 'InsightFace', 'OpenCV', 'ArcFace Embeddings', 'Pose Estimation', 'Gaze Detection'],
+  },
+  {
+    label: 'Web & Deployment',
+    color: '#a855f7',
+    icon: '⟡',
+    skills: ['React', 'TypeScript', 'FastAPI', 'Streamlit', 'Node.js', 'REST APIs', 'WebSockets', 'Docker', 'Git'],
   },
 ];
 
@@ -73,7 +85,7 @@ export default function Skills() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
           gap: '0.6rem',
           marginTop: '1.25rem',
         }}>
