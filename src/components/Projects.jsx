@@ -10,7 +10,7 @@ const projects = [
     subtitle: "SSH '26 National Hackathon · Runner-Up",
     color: '#6366f1',
     colorHex: '#6366f1',
-    github: '',
+    github: 'https://github.com/RishabhPR77/ai-interview-platform',
     live: '',
     thumbnail: '/thumbnails/ai-interview.png',
     isPrivate: true,
