@@ -109,7 +109,7 @@ function ResumeDownload() {
         <span style={{
           fontFamily: 'var(--font-mono)', fontSize: '0.72rem',
           fontWeight: 600, color: 'var(--cyan)', letterSpacing: '0.04em',
-        }}>Rishabh Patidar — Resume ↓</span>
+        }}>Rishabh Patidar - Resume ↓</span>
         <span style={{
           fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
           color: 'var(--text3)', marginTop: '0.15rem', letterSpacing: '0.06em',
@@ -208,7 +208,7 @@ export default function Hero({ goTo }) {
                   marginBottom: '0.15em',
                 }}>Rishabh</div>
 
-                {/* Last name — accent style */}
+                {/* Last name - accent style */}
                 <div style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(3rem, 5.5vw, 5.5rem)',
@@ -333,7 +333,7 @@ export default function Hero({ goTo }) {
               borderLeft: '2px solid rgba(0,212,255,0.18)',
               maxWidth: '440px',
             }}>
-              Final-year IT student building production-grade ML systems — from
+              Final-year IT student building production-grade ML systems - from
               2.5M-transaction churn models to LLM-powered analytics pipelines.
               Research-backed, hackathon-tested.
             </p>

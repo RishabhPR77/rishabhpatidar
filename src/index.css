@@ -22,7 +22,7 @@
   --font-body: 'Instrument Sans', sans-serif;
 }
 
-/* Horizontal slide layout — no page-level scrolling */
+/* Horizontal slide layout - no page-level scrolling */
 html, body {
   height: 100%;
   overflow: hidden;

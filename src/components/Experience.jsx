@@ -6,8 +6,8 @@ const experience = {
   location: 'Gwalior, MP',
   period: 'Jan – May 2026',
   bullets: [
-    'Conducted end-to-end EDA on event marketing datasets covering 50+ features, identifying key footfall drivers through correlation analysis and domain-informed feature selection — reducing model noise by 30%.',
-    'Built a two-stage XGBoost Regressor pipeline (R² = 0.96) with a Dynamic Physical Clamping algorithm enforcing venue-capacity constraints at inference — achieving zero invalid output predictions across all test cases.',
+    'Conducted end-to-end EDA on event marketing datasets covering 50+ features, identifying key footfall drivers through correlation analysis and domain-informed feature selection - reducing model noise by 30%.',
+    'Built a two-stage XGBoost Regressor pipeline (R² = 0.96) with a Dynamic Physical Clamping algorithm enforcing venue-capacity constraints at inference - achieving zero invalid output predictions across all test cases.',
     'Integrated LLaMA-3.3-70B via Groq API to automate brand-event synergy scoring and generate structured JSON negotiation reports, deployed as a stateless FastAPI microservice enabling data-driven sponsorship ROI estimation.',
   ],
   tags: ['XGBoost', 'FastAPI', 'LLaMA-3.3-70B', 'Groq API', 'GridSearchCV'],
@@ -98,7 +98,7 @@ export default function Experience() {
           </div>
         </div>
 
-        {/* Education — horizontal compact row */}
+        {/* Education - horizontal compact row */}
         <div style={{
           marginTop: '0.65rem',
           border: '1px solid var(--border2)',

@@ -19,7 +19,7 @@ const achievements = [
   },
   {
     rank: '🏆',
-    title: 'Top Performer — WebDev Track',
+    title: 'Top Performer - WebDev Track',
     event: 'Hacksagon',
     org: 'ABV IIITM Gwalior',
     date: 'Apr 2026',
@@ -188,7 +188,7 @@ export function Contact() {
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0,212,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(0,212,255,0.45)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'rgba(0,212,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(0,212,255,0.2)'; e.currentTarget.style.transform = 'none'; }}
               >
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, color: 'var(--cyan)' }}>Rishabh Patidar — Resume ↓</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', fontWeight: 600, color: 'var(--cyan)' }}>Rishabh Patidar - Resume ↓</span>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text3)', marginTop: '0.15rem' }}>AI · ML · Data Science</span>
               </a>
             </div>

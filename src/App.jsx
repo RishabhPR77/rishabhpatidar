@@ -265,7 +265,7 @@ function BottomLabel({ label, index, total }) {
         textTransform: 'uppercase',
       }}>
         <span style={{ color: 'var(--cyan)' }}>{String(index + 1).padStart(2, '0')}</span>
-        {' / '}{String(total).padStart(2, '0')} — {label}
+        {' / '}{String(total).padStart(2, '0')} - {label}
       </span>
     </div>
   );

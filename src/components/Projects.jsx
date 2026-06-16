@@ -4,32 +4,8 @@ import { SectionHeader } from './Skills';
 
 const projects = [
   {
-    id: 'ai-interview',
-    num: '01',
-    title: 'AI Interview Platform',
-    subtitle: "SSH '26 National Hackathon · Runner-Up",
-    color: '#6366f1',
-    colorHex: '#6366f1',
-    github: 'https://github.com/RishabhPR77/ai-interview-platform',
-    live: '',
-    thumbnail: '/thumbnails/ai-interview.png',
-    isPrivate: true,
-    tags: ['FastAPI', 'LLaMA-3.3-70B', 'Whisper', 'MediaPipe', 'React', 'TypeScript'],
-    metrics: [
-      { val: 'Adaptive', label: 'Question Engine' },
-      { val: 'Multimodal', label: 'Behaviour Analysis' },
-      { val: 'Runner-Up', label: "SSH '26 Hackathon" },
-      { val: 'Full-Stack', label: 'React + FastAPI' },
-    ],
-    bullets: [
-      'Built an adaptive AI interview engine powered by LLaMA-3.3-70B via Groq API — generates role and resume-specific question banks, then dynamically selects follow-ups or injects curveballs based on answer quality and topic coverage gaps.',
-      'Engineered a real-time multimodal behavioural analysis pipeline fusing Whisper audio signals (WPM, filler words, confidence language score) with MediaPipe video signals (eye contact %, posture score, gaze direction, nervousness indicators including lip compression and brow furrow).',
-      'Deployed a full React/TypeScript frontend (Vite) with camera pre-check, live interview flow, session resume on reconnect, performance comparison across attempts, and one-click PDF report export — backed by a modular FastAPI scoring engine with customisable weighted rubrics.',
-    ],
-  },
-  {
     id: 'churn',
-    num: '02',
+    num: '01',
     title: 'Customer Segmentation & Churn Prediction',
     subtitle: 'Revenue Intelligence at Scale',
     color: 'var(--cyan)',
@@ -48,13 +24,13 @@ const projects = [
     bullets: [
       'Engineered 22 RFM & behavioural features from 2.5M+ raw transactions using a modular SQL-to-Pandas ETL pipeline, reducing feature computation time by 40%.',
       'Applied KMeans (k=4) clustering to surface 4 actionable customer segments including a 15.7% churn-rate cohort. Trained Random Forest (ROC-AUC 0.8793) with SMOTE cross-validation.',
-      'Used SHAP TreeExplainer to confirm recency as the #1 churn driver — translating probability scores into $233,917 revenue-at-risk across 392 high-risk households via interactive Streamlit dashboard.',
+      'Used SHAP TreeExplainer to confirm recency as the #1 churn driver - translating probability scores into $233,917 revenue-at-risk across 392 high-risk households via interactive Streamlit dashboard.',
     ],
   },
   {
     id: 'cinemaiq',
-    num: '03',
-    title: 'CinemaIQ — Box Office Intelligence Platform',
+    num: '02',
+    title: 'CinemaIQ - Box Office Intelligence Platform',
     subtitle: 'AI-Powered Revenue Forecasting',
     color: 'var(--amber)',
     colorHex: '#f59e0b',
@@ -70,14 +46,14 @@ const projects = [
       { val: 'LLaMA 3.3', label: 'AI Commentary' },
     ],
     bullets: [
-      'Designed novel actor, director, and composer power-indices from historical data using weighted aggregation and multi-hot genre encoding — creating 30+ domain-specific features for South Asian film revenue prediction.',
+      'Designed novel actor, director, and composer power-indices from historical data using weighted aggregation and multi-hot genre encoding - creating 30+ domain-specific features for South Asian film revenue prediction.',
       'Benchmarked 5 regression models (Linear, Ridge, Random Forest, Gradient Boosting, XGBoost) with consistent train/val/test splits and log1p target transformation. Selected XGBoost on lowest RMSE.',
       'Deployed a 3-tab Streamlit dashboard with Pessimistic/Base/Optimistic scenario forecasting, ROI gauges, and LLaMA 3.3-powered AI commentary via Groq API for non-technical stakeholders.',
     ],
   },
   {
     id: 'vtis',
-    num: '04',
+    num: '03',
     title: 'Video Target Identification System',
     subtitle: 'Forensic Biometric Analytics',
     color: '#a855f7',
@@ -101,7 +77,7 @@ const projects = [
   },
   {
     id: 'footfall',
-    num: '05',
+    num: '04',
     title: 'Event Footfall Prediction & Sponsorship Engine',
     subtitle: 'Research Project · LLM-Integrated ML Pipeline',
     color: '#22c55e',
@@ -118,19 +94,19 @@ const projects = [
       { val: '30%', label: 'Noise Reduction' },
     ],
     bullets: [
-      'Conducted end-to-end EDA on event marketing datasets (50+ features), identifying key footfall drivers via correlation analysis and domain-informed feature selection — reducing model noise by 30%.',
+      'Conducted end-to-end EDA on event marketing datasets (50+ features), identifying key footfall drivers via correlation analysis and domain-informed feature selection - reducing model noise by 30%.',
       'Built a two-stage XGBoost pipeline (R² = 0.96) with a Dynamic Physical Clamping algorithm enforcing venue-capacity constraints at inference, achieving zero physically invalid predictions.',
       'Integrated LLaMA-3.3-70B via Groq API for semantic brand-event synergy scoring, generating structured JSON negotiation reports deployed as a stateless FastAPI microservice.',
     ],
   },
   {
     id: 'code-archaeologist',
-    num: '06',
+    num: '05',
     title: 'Code Archaeologist',
     subtitle: 'RAG System for Git History Analysis',
     color: '#0ea5e9',
     colorHex: '#0ea5e9',
-    github: '',
+    github: 'https://github.com/RishabhPR77/code-archaeologist-demo',
     live: 'https://code-archaeology-rag.streamlit.app',
     thumbnail: '/thumbnails/code-arch.png',
     isPrivate: false,
@@ -142,20 +118,20 @@ const projects = [
       { val: 'Multi-repo', label: 'Support' },
     ],
     bullets: [
-      'Built a full RAG pipeline that ingests Git commit history via GitPython + GitHub API, embeds chunks with BAAI/bge-small-en-v1.5 into Pinecone per-repo namespaces — answering "why" questions over any public codebase in plain English.',
+      'Built a full RAG pipeline that ingests Git commit history via GitPython + GitHub API, embeds chunks with BAAI/bge-small-en-v1.5 into Pinecone per-repo namespaces - answering "why" questions over any public codebase in plain English.',
       'Implemented hybrid search combining 60% dense vector retrieval and 40% BM25 keyword matching so exact function names and file paths are found alongside conceptual queries, with LLaMA-3.3-70B generating commit-cited grounded answers.',
       'Deployed a 6-page Streamlit app (Ask, File Timeline, Hot Files, Co-Change Analysis, Author Breakdown, Multi-repo Ingest) powered by a NetworkX knowledge graph linking commits temporally across files.',
     ],
   },
 ];
 
-/* ── Thumbnail component — image with fallback ── */
+/* ── Thumbnail component - image with fallback ── */
 function Thumbnail({ project, height = 160 }) {
   const [failed, setFailed] = useState(false);
   const c = project.colorHex;
 
   if (failed || !project.thumbnail) {
-    // CSS stat-card fallback — special for footfall, generic gradient for others
+    // CSS stat-card fallback - special for footfall, generic gradient for others
     return (
       <div style={{
         height, flexShrink: 0,
