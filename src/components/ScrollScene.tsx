@@ -39,15 +39,15 @@ function ParticleField() {
   );
 }
 
-function MorphingBlob({ progress, mouse }: { progress: React.MutableRefObject<number>; mouse: React.MutableRefObject<{x:number;y:number}> }) {
+function MorphingBlob({ progress, mouse }: { progress: React.MutableRefObject<number>; mouse: React.MutableRefObject<{ x: number; y: number }> }) {
   const ref = useRef<THREE.Mesh>(null!);
   const matRef = useRef<any>(null!);
   useFrame((state) => {
     const p = progress.current;
     const t = state.clock.elapsedTime;
     const m = mouse.current;
-    ref.current.position.x = THREE.MathUtils.lerp(-2.8, 2.8, p) + m.x * 0.6;
-    ref.current.position.y = Math.sin(p * Math.PI * 2) * 1.4 + m.y * 0.4;
+    ref.current.position.x = THREE.MathUtils.lerp(-3.6, 3.6, p) + m.x * 0.25;
+    ref.current.position.y = Math.sin(p * Math.PI * 2) * 1.4 + m.y * 0.18;
     ref.current.rotation.y = t * 0.3 + p * Math.PI * 4;
     ref.current.rotation.x = t * 0.2;
     const s = 1.4 + Math.sin(p * Math.PI) * 0.5;
@@ -155,12 +155,12 @@ function WireGrid({ progress }: { progress: React.MutableRefObject<number> }) {
   );
 }
 
-function CameraRig({ progress, mouse }: { progress: React.MutableRefObject<number>; mouse: React.MutableRefObject<{x:number;y:number}> }) {
+function CameraRig({ progress, mouse }: { progress: React.MutableRefObject<number>; mouse: React.MutableRefObject<{ x: number; y: number }> }) {
   useFrame((state) => {
     const p = progress.current;
     const m = mouse.current;
-    state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, Math.sin(p * Math.PI * 2) * 1.5 + m.x * 0.5, 0.05);
-    state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, p * 2 - 0.8 + m.y * 0.3, 0.05);
+    state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, Math.sin(p * Math.PI * 2) * 1.5 + m.x * 0.2, 0.05);
+    state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, p * 2 - 0.8 + m.y * 0.12, 0.05);
     state.camera.position.z = 6.5 - p * 1.8;
     state.camera.lookAt(0, 0, 0);
   });
@@ -173,8 +173,10 @@ export default function ScrollScene() {
     <div
       className="fixed inset-0 z-0"
       onMouseMove={(e) => {
-        mouse.current.x = (e.clientX / window.innerWidth) * 2 - 1;
-        mouse.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
+        const x = (e.clientX / window.innerWidth) * 2 - 1;
+        const y = -(e.clientY / window.innerHeight) * 2 + 1;
+        mouse.current.x = Math.max(-1, Math.min(1, x));
+        mouse.current.y = Math.max(-1, Math.min(1, y));
       }}
       style={{ pointerEvents: "none" }}
     >
@@ -185,7 +187,7 @@ export default function ScrollScene() {
   );
 }
 
-function SceneInner({ mouse }: { mouse: React.MutableRefObject<{x:number;y:number}> }) {
+function SceneInner({ mouse }: { mouse: React.MutableRefObject<{ x: number; y: number }> }) {
   const progress = useScrollProgress();
   return (
     <>
