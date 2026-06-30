@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { ProjectCard } from "@/components/ProjectCard";
-import ScrollScene from "@/components/ScrollScene";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -118,7 +117,6 @@ const achievements = [
 function Index() {
   return (
     <div id="scroll-root" className="relative h-screen overflow-y-auto overflow-x-hidden text-white bg-[#04040a]">
-      <ScrollScene />
       {/* readability vignette */}
       <div className="pointer-events-none fixed inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(4,4,10,0.55)_70%,rgba(4,4,10,0.85)_100%)]" />
       <Cursor />
