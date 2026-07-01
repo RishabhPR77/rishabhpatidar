@@ -98,9 +98,11 @@ function Index() {
               <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
                 I build <span className="text-[#00d4ff]">production ML</span> systems that ship.
               </h2>
-              <p className="text-white/80 text-lg leading-relaxed max-w-2xl backdrop-blur-sm">
+              <p className="text-white/80 text-base leading-snug max-w-2xl backdrop-blur-sm">
                 I build production ML systems, not just notebooks. As a final year Information Technology student at MITS Gwalior, I spent a semester as an Undergraduate Research Assistant in the Department of Information Technology, where I shipped a two stage XGBoost pipeline hitting an R squared of 0.96 and a custom constraint algorithm that eliminated invalid predictions entirely.
+                <br /><br />
                 Most of my work lives across the full stack of a machine learning project. I clean and engineer features in Pandas, train boosted models with XGBoost and Scikit learn, then deploy everything behind FastAPI or Streamlit so it actually does something for someone. Lately I have been deep in hybrid retrieval and RAG systems, combining dense embeddings with keyword search and grounding LLM outputs in real data instead of letting them hallucinate.
+                <br /><br />
                 CGPA 8.124. Best model R squared of 0.96. ROC AUC of 0.88 on a churn model trained across 2.5 million transactions. I would rather show you the dashboard than tell you about it.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-6">
@@ -154,7 +156,7 @@ function Index() {
                 <StickyLabel inline n="004" label="SELECTED WORK" />
                 <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mt-3">Projects<span className="text-[#00d4ff]">.</span></h2>
               </div>
-              <div className="hidden md:block font-mono text-xs text-white/50 max-w-[200px]">hover any card →<br/>tilts in 3D</div>
+              <div className="hidden md:block font-mono text-xs text-white/50 max-w-[200px]">hover any card →<br />tilts in 3D</div>
             </div>
             <div className="space-y-8">
               {projects.map((p, i) => <ProjectCard key={p.title} project={p} index={i} />)}
@@ -244,8 +246,8 @@ function Reveal({ children, className = "", delay = 0, from = "up" }: { children
   useEffect(() => { scrollRootRef.current = document.getElementById("scroll-root"); }, []);
   const initial =
     from === "left" ? { opacity: 0, x: -70, y: 0, filter: "blur(6px)" } :
-    from === "right" ? { opacity: 0, x: 70, y: 0, filter: "blur(6px)" } :
-    { opacity: 0, x: 0, y: 50, filter: "blur(6px)" };
+      from === "right" ? { opacity: 0, x: 70, y: 0, filter: "blur(6px)" } :
+        { opacity: 0, x: 0, y: 50, filter: "blur(6px)" };
   return (
     <motion.div
       initial={initial}
@@ -357,11 +359,11 @@ function SkillsSection() {
 }
 
 const ICONS: Record<string, React.ReactNode> = {
-  mail: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>,
-  phone: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>,
-  github: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.93c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.35.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.48.11-3.08 0 0 .98-.31 3.2 1.18a11 11 0 0 1 5.83 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.6.23 2.78.12 3.08.74.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.41-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>,
-  linkedin: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>,
-  doc: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>,
+  mail: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>,
+  phone: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /></svg>,
+  github: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.93c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.35.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.48.11-3.08 0 0 .98-.31 3.2 1.18a11 11 0 0 1 5.83 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.6.23 2.78.12 3.08.74.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.41-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z" /></svg>,
+  linkedin: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" /></svg>,
+  doc: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M12 18v-6" /><path d="m9 15 3 3 3-3" /></svg>,
 };
 
 function ContactCard({ k, v, h, c, icon, index }: { k: string; v: string; h: string; c: string; icon: string; index: number }) {
@@ -399,7 +401,7 @@ function ContactCard({ k, v, h, c, icon, index }: { k: string; v: string; h: str
         <div className="text-base md:text-lg mt-1 truncate text-white group-hover:text-white transition">{v}</div>
       </div>
       <div className="relative shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all group-hover:rotate-[-45deg]" style={{ borderColor: `${c}66`, color: c }}>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
       </div>
     </motion.a>
   );
@@ -414,7 +416,7 @@ function Cursor() {
   useEffect(() => {
     const move = (e: MouseEvent) => {
       x.set(e.clientX); y.set(e.clientY); rx.set(e.clientX); ry.set(e.clientY);
-      setHover(!!( e.target as HTMLElement).closest("a,button,[data-cursor=hover]"));
+      setHover(!!(e.target as HTMLElement).closest("a,button,[data-cursor=hover]"));
     };
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
