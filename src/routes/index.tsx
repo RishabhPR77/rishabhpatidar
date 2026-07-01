@@ -99,7 +99,9 @@ function Index() {
                 I build <span className="text-[#00d4ff]">production ML</span> systems that ship.
               </h2>
               <p className="text-white/80 text-lg leading-relaxed max-w-2xl backdrop-blur-sm">
-                Final-year Information Technology student at MITS Gwalior, working as an Undergraduate Research Assistant in the Department of Information Technology. I work across the stack — feature engineering with Pandas, training XGBoost & boosted ensembles, then shipping behind FastAPI and Streamlit. Recently obsessed with hybrid retrieval and LLM-grounded analytics.
+                I build production ML systems, not just notebooks. As a final year Information Technology student at MITS Gwalior, I spent a semester as an Undergraduate Research Assistant in the Department of Information Technology, where I shipped a two stage XGBoost pipeline hitting an R squared of 0.96 and a custom constraint algorithm that eliminated invalid predictions entirely.
+                Most of my work lives across the full stack of a machine learning project. I clean and engineer features in Pandas, train boosted models with XGBoost and Scikit learn, then deploy everything behind FastAPI or Streamlit so it actually does something for someone. Lately I have been deep in hybrid retrieval and RAG systems, combining dense embeddings with keyword search and grounding LLM outputs in real data instead of letting them hallucinate.
+                CGPA 8.124. Best model R squared of 0.96. ROC AUC of 0.88 on a churn model trained across 2.5 million transactions. I would rather show you the dashboard than tell you about it.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-6">
                 {[{ k: "CGPA", v: "8.124" }, { k: "BEST R²", v: "0.96" }, { k: "ROC-AUC", v: "0.88" }, { k: "ROWS", v: "2.5M+" }].map((s) => (
