@@ -228,7 +228,7 @@ function Index() {
                 { k: "PHONE", v: "+91 9098729516", h: "tel:+919098729516", c: "#22c55e", icon: "phone" },
                 { k: "GITHUB", v: "github.com/RishabhPR77", h: "https://github.com/RishabhPR77", c: "#ffffff", icon: "github" },
                 { k: "LINKEDIN", v: "/in/rishabh-ptdr", h: "https://linkedin.com/in/rishabh-ptdr", c: "#0ea5e9", icon: "linkedin" },
-                { k: "RESUME", v: "Download PDF · 2 pages", h: "/Rishabh Patidar.pdf", c: "#ff8c42", icon: "doc" },
+                { k: "RESUME", v: "Download PDF", h: "/Rishabh Patidar.pdf", c: "#ff8c42", icon: "doc" },
               ].map((c, i) => <ContactCard key={c.k} {...c} index={i} />)}
             </div>
           </div>
