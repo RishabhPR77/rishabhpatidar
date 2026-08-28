@@ -61,6 +61,8 @@ const achievements = [
 ];
 
 function Index() {
+  const scrollRootRef = useRef<HTMLElement | null>(null);
+  useEffect(() => { scrollRootRef.current = document.getElementById("scroll-root"); }, []);
   return (
     <div id="scroll-root" className="relative h-screen overflow-y-auto overflow-x-hidden text-white bg-[#04040a]">
       <div className="pointer-events-none fixed inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(4,4,10,0.55)_70%,rgba(4,4,10,0.85)_100%)]" />
@@ -96,22 +98,20 @@ function Index() {
             <StickyLabel n="001" label="WHO" />
             <Reveal className="md:col-span-8 space-y-6">
               <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
-                I build <span className="text-[#00d4ff]">production ML</span> systems that ship.
+                I ship <span className="text-[#00d4ff]">AI systems</span>, not just models.
               </h2>
               <p className="text-white/80 text-base leading-snug max-w-2xl backdrop-blur-sm">
-                I build production ML systems, not just notebooks. As a final year Information Technology student at MITS Gwalior, I'm an AI Engineer Intern (GenAI &amp; Agentic AI) at CogKnowEdge Solutions, where I've shipped 7+ hands-on RAG lab systems across Agentic RAG, Hybrid RAG, Graph RAG, MultiVector RAG, OCR RAG, and Vectorless RAG, deployed on GCP Cloud Run with Docker. I also spent a semester as an Undergraduate Research Assistant, where I shipped a two-stage XGBoost pipeline hitting an R² of 0.96 and a custom constraint algorithm that eliminated invalid predictions entirely.
+                I build end-to-end AI — RAG pipelines, agentic systems, and the harness that grounds them — not just notebooks. As a final year Information Technology student at MITS Gwalior, I'm an AI Engineer Intern (GenAI &amp; Agentic AI) at CogKnowEdge Solutions, where I've shipped 7+ hands-on RAG lab systems across Agentic RAG, Hybrid RAG, Graph RAG, MultiVector RAG, OCR RAG, and Vectorless RAG, deployed on GCP Cloud Run with Docker. I also spent a semester as an Undergraduate Research Assistant, where I shipped a two-stage XGBoost pipeline hitting an R² of 0.96 and a custom constraint algorithm that eliminated invalid predictions entirely.
                 <br /><br />
                 Most of my work lives across the full stack of a machine learning project. I clean and engineer features in Pandas, train boosted models with XGBoost and Scikit-learn, then deploy them behind FastAPI or Streamlit so they actually do something for someone. Recently I've been deep in the AI harness layer — hybrid retrieval, graph RAG, vector databases, and grounding LLM outputs in real data instead of letting them hallucinate.
                 <br /><br />
                 CGPA 8.124. Best model R² of 0.96. ROC-AUC of 0.88 on a churn model trained across 2.5 million transactions. I would rather show you the dashboard than tell you about it.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-6">
-                {[{ k: "CGPA", v: "8.124" }, { k: "BEST R²", v: "0.96" }, { k: "ROC-AUC", v: "0.88" }, { k: "ROWS", v: "2.5M+" }].map((s) => (
-                  <div key={s.k} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-4">
-                    <div className="font-mono text-[10px] tracking-widest text-[#00d4ff]">{s.k}</div>
-                    <div className="text-3xl font-semibold mt-1 font-mono tabular-nums">{s.v}</div>
-                  </div>
-                ))}
+              <div className="pt-6">
+                <div className="inline-flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md px-6 py-4">
+                  <div className="font-mono text-[10px] tracking-widest text-[#00d4ff]">CGPA</div>
+                  <div className="text-3xl font-semibold font-mono tabular-nums">8.124</div>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -124,7 +124,7 @@ function Index() {
         <section id="research" className="relative z-10 min-h-screen flex items-center px-6 md:px-12 py-32">
           <div className="max-w-6xl mx-auto w-full grid md:grid-cols-12 gap-8">
             <StickyLabel n="003" label="EXPERIENCE" />
-            <Reveal className="md:col-span-8 space-y-6">
+            <div className="md:col-span-8 space-y-6">
               {[
                 {
                   when: "AUG — SEP 2026 · REMOTE",
@@ -151,24 +151,31 @@ function Index() {
                   ],
                 },
               ].map((exp, i) => (
-                <div key={i} className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent" />
-                  <div className="text-white/50 font-mono text-xs mb-2">{exp.when} · {exp.org}</div>
-                  <h3 className="text-2xl md:text-3xl font-semibold mb-2 tracking-tight">{exp.title}</h3>
-                  <div className="text-white/60 mb-5 font-mono text-sm">Focus: {exp.focus}</div>
-                  <ul className="space-y-3 text-white/75">
-                    {exp.bullets.map((b) => (
-                      <li key={b} className="flex gap-3"><span className="text-[#00d4ff] font-mono shrink-0">▸</span><span>{b}</span></li>
-                    ))}
-                  </ul>
-                </div>
+                <Reveal key={i} from={i % 2 === 0 ? "left" : "right"} delay={i * 0.12}>
+                  <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent" />
+                    <div className="text-white/50 font-mono text-xs mb-2">{exp.when} · {exp.org}</div>
+                    <h3 className="text-2xl md:text-3xl font-semibold mb-2 tracking-tight">{exp.title}</h3>
+                    <div className="text-white/60 mb-5 font-mono text-sm">Focus: {exp.focus}</div>
+                    <ul className="space-y-3 text-white/75">
+                      {exp.bullets.map((b, bi) => (
+                        <motion.li key={b} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, root: scrollRootRef, margin: "-10% 0px" }} transition={{ duration: 0.5, delay: i * 0.12 + bi * 0.12 }} className="flex gap-3">
+                          <span className="text-[#00d4ff] font-mono shrink-0">▸</span>
+                          <span>{b}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
               ))}
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 relative overflow-hidden">
-                <div className="text-white/60 text-sm italic">
-                  Academic report "SponsorWise: An AI-Powered Event Sponsorship Intelligence Platform" — approved and signed by faculty and Head of Department.
+              <Reveal from="up" delay={0.24}>
+                <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 relative overflow-hidden">
+                  <div className="text-white/60 text-sm italic">
+                    Academic report "SponsorWise: An AI-Powered Event Sponsorship Intelligence Platform" — approved and signed by faculty and Head of Department.
+                  </div>
                 </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           </div>
         </section>
 
