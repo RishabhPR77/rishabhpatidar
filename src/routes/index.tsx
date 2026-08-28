@@ -308,6 +308,7 @@ function ScrollHint() {
 function RoleRotator() {
   const roles = [
     { t: "AI ENGINEER", c: "#a855f7" },
+    { t: "DATA SCIENTIST", c: "#eab308" },
     { t: "ML ENGINEER", c: "#22c55e" },
     { t: "RAG SPECIALIST", c: "#00d4ff" },
     { t: "RESEARCH ASSISTANT", c: "#ff8c42" },
