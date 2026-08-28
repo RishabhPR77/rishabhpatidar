@@ -120,8 +120,8 @@ function Index() {
         {/* SKILLS */}
         <SkillsSection />
 
-        {/* RESEARCH */}
-        <section id="research" className="relative z-10 min-h-screen flex items-center px-6 md:px-12 py-32">
+        {/* EXPERIENCE */}
+        <section id="experience" className="relative z-10 min-h-screen flex items-center px-6 md:px-12 py-32">
           <div className="max-w-6xl mx-auto w-full grid md:grid-cols-12 gap-8">
             <StickyLabel n="003" label="EXPERIENCE" />
             <div className="md:col-span-8 space-y-6">
@@ -251,7 +251,7 @@ function Nav() {
       <div className="hidden md:flex gap-8 font-mono text-[11px] tracking-widest text-white/60">
         <a href="#about" className="hover:text-white transition">ABOUT</a>
         <a href="#skills" className="hover:text-white transition">SKILLS</a>
-        <a href="#research" className="hover:text-white transition">RESEARCH</a>
+        <a href="#experience" className="hover:text-white transition">EXPERIENCE</a>
         <a href="#work" className="hover:text-white transition">WORK</a>
         <a href="#wins" className="hover:text-white transition">WINS</a>
         <a href="#contact" className="hover:text-white transition">CONTACT</a>
