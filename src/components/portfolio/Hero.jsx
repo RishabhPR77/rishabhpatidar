@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const roles = ['Data Scientist', 'ML Engineer', 'Research Assistant', 'Problem Solver'];
+const roles = ['AI Engineer', 'GenAI Developer', 'RAG Specialist', 'Research Assistant'];
 
 function GridBackground() {
   return (
@@ -333,9 +333,23 @@ export default function Hero({ goTo }) {
               borderLeft: '2px solid rgba(0,212,255,0.18)',
               maxWidth: '440px',
             }}>
-              Final-year IT student building production-grade ML systems - from
-              2.5M-transaction churn models to LLM-powered analytics pipelines.
-              Research-backed, hackathon-tested.
+              AI Engineer Intern (GenAI & Agentic AI) building production ML
+              systems, not just notebooks. As a final-year Information Technology
+              student at MITS Gwalior, I shipped RAG systems on LangChain, LangGraph,
+              Qdrant, and Neo4j, deployed them on GCP Cloud Run with Docker, and
+              built a two-stage XGBoost pipeline hitting R² = 0.96 with zero invalid
+              predictions.
+
+              I work across the full ML stack - cleaning and engineering features in
+              Pandas, training boosted models with XGBoost and Scikit-learn, then
+              deploying behind FastAPI or Streamlit so it actually does something for
+              someone. Recently I've been deep in the AI harness layer: hybrid
+              retrieval, graph RAG, vector databases, and grounding LLM outputs in
+              real data instead of letting them hallucinate.
+
+              CGPA 8.124. Best model R² of 0.96. ROC-AUC of 0.88 on a churn model
+              trained across 2.5 million transactions. I would rather show you the
+              dashboard than tell you about it.
             </p>
 
             {/* Stats */}

@@ -6,10 +6,10 @@ import { ProjectCard } from "@/components/ProjectCard";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rishabh Patidar — Data Scientist & ML Engineer" },
-      { name: "description", content: "Portfolio of Rishabh Patidar — B.Tech IT undergrad at MITS Gwalior building production ML systems, RAG pipelines and LLM-powered analytics. Open to internships." },
-      { property: "og:title", content: "Rishabh Patidar — Data Scientist & ML Engineer" },
-      { property: "og:description", content: "Production ML, RAG and LLM systems. Research assistant at MITS Gwalior. Open to internships." },
+      { title: "Rishabh Patidar — AI Engineer & ML Engineer" },
+      { name: "description", content: "Portfolio of Rishabh Patidar — AI Engineer Intern (GenAI & Agentic AI) and B.Tech IT undergrad at MITS Gwalior building production ML systems, RAG pipelines and the AI harness layer. Open to opportunities." },
+      { property: "og:title", content: "Rishabh Patidar — AI Engineer & ML Engineer" },
+      { property: "og:description", content: "Production ML, RAG and Agentic AI systems. AI Engineer Intern at CogKnowEdge Solutions. Research background at MITS Gwalior. Open to opportunities." },
     ],
   }),
   component: Index,
@@ -19,14 +19,14 @@ const projects = [
   {
     num: "01", tag: "RAG · LLM SYSTEMS", year: "2026", title: "Code Archaeologist",
     body: "Production RAG pipeline that ingests any public GitHub repo, classifies commits by developer intent, and answers \"why\" questions over commit history with grounded LLM citations.",
-    stack: ["Pinecone", "BGE Embeddings", "BM25", "LLaMA-3.3-70B", "Groq API", "Redis", "Streamlit"],
+    stack: ["Pinecone", "BGE Embeddings", "BM25", "LLM APIs", "Redis", "Streamlit"],
     metrics: [{ val: "60/40", label: "Dense/BM25" }, { val: "6", label: "Analysis Modes" }, { val: "Multi", label: "Namespaces" }, { val: "TTL", label: "Auto-cleanup" }],
     github: "https://github.com/RishabhPR77/code-archaeologist-demo", live: "https://code-archaeology-rag.streamlit.app", color: "#0ea5e9", thumb: "/thumbnails/code-arch.png",
   },
   {
     num: "02", tag: "FULL-STACK · ML SAAS", year: "2026", title: "SponsorWise",
     body: "Event sponsorship intelligence platform on a distributed microservices model — FastAPI inference engine, Node/Express backend, React 18 SPA, real-time Socket.IO negotiation rooms with RBAC.",
-    stack: ["React 18", "FastAPI", "XGBoost", "MongoDB", "Socket.IO", "Groq API"],
+    stack: ["React 18", "FastAPI", "XGBoost", "MongoDB", "Socket.IO", "LLM APIs"],
     metrics: [{ val: "0.96", label: "Model R²" }, { val: "215.6", label: "RMSE" }, { val: "100%", label: "Safe Preds" }, { val: "JWT", label: "+ RBAC" }],
     github: "https://github.com/RishabhPR77/eventsight", color: "#22c55e", thumb: "/thumbnails/footfall.png",
   },
@@ -39,9 +39,9 @@ const projects = [
   },
   {
     num: "04", tag: "BOX OFFICE · LLM", year: "2025", title: "CinemaIQ",
-    body: "Box office intelligence platform with novel actor/director/composer power-indices, five benchmarked regression models, and LLaMA-3.3 commentary served through a 3-tab Streamlit forecasting dashboard.",
-    stack: ["XGBoost", "Plotly", "Streamlit", "Groq API", "LLaMA 3.3"],
-    metrics: [{ val: "5", label: "Models" }, { val: "30+", label: "Features" }, { val: "3-Tab", label: "Dashboard" }, { val: "AI", label: "Commentary" }],
+    body: "Box office intelligence platform with novel actor/director/composer power-indices, five benchmarked regression models, and LLM-powered AI commentary served through a 3-tab Streamlit forecasting dashboard.",
+    stack: ["XGBoost", "Plotly", "Streamlit", "LLM APIs"],
+    metrics: [{ val: "5", label: "Models" }, { val: "30+", label: "Features" }, { val: "3-Tab", label: "Dashboard" }, { val: "LLM API", label: "Commentary" }],
     github: "https://github.com/RishabhPR77/movie-success-predictor", live: "https://movie-success-predictor-xu2vnp53g3jg8a3pmrr3k3.streamlit.app/", color: "#ff8c42", thumb: "/thumbnails/cinemaiq.png",
   },
   {
@@ -54,10 +54,10 @@ const projects = [
 ];
 
 const achievements = [
-  { y: "FEB 2026", t: "1st Runner-Up", s: "SSH '26 National Hackathon", c: "#00d4ff" },
-  { y: "APR 2026", t: "Top Performer · WebDev", s: "Hacksagon · ABV IIITM Gwalior", c: "#ff8c42" },
-  { y: "OCT 2025", t: "Finalist", s: "ABV-IIITM Hackatron × GitHub", c: "#a855f7" },
-  { y: "2025", t: "NPTEL · 73/100", s: "Math Foundations of ML · IIT Madras", c: "#22c55e" },
+  { y: "AUG 2026", t: "1st Place", s: "IKIGAI '26 National Hackathon · Acropolis Institute, Indore", c: "#ff8c42" },
+  { y: "FEB 2026", t: "1st Runner-Up", s: "SSH '26 National Hackathon · Symbiosis University, Indore", c: "#c0c0c0" },
+  { y: "APR 2026", t: "Top Performer · WebDev", s: "Hacksagon · ABV IIITM Gwalior", c: "#a855f7" },
+  { y: "2026", t: "NPTEL · 73/100", s: "Math Foundations of ML · IIT Madras", c: "#22c55e" },
 ];
 
 function Index() {
@@ -73,7 +73,7 @@ function Index() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="max-w-6xl mx-auto w-full">
             <div className="font-mono text-[11px] tracking-[0.4em] text-[#00d4ff] mb-6 flex items-center gap-3">
               <span className="inline-block w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
-              OPEN TO INTERNSHIPS · SUMMER 2026
+              OPEN TO OPPORTUNITIES · AI ENGINEER
             </div>
             <h1 className="text-[clamp(2.75rem,12vw,11rem)] leading-[0.9] font-semibold tracking-[-0.02em] text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)]">
               <span className="block">RISHABH</span>
@@ -82,7 +82,7 @@ function Index() {
             <RoleRotator />
             <div className="mt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <p className="max-w-md text-white/80 text-lg leading-relaxed backdrop-blur-sm">
-                B.Tech IT undergrad at MITS Gwalior. I build production ML systems — from 2.5M-transaction churn pipelines to LLM-powered RAG over Git history.
+                AI Engineer Intern (GenAI &amp; Agentic AI). B.Tech IT undergrad at MITS Gwalior building production ML systems — from RAG pipelines and the AI harness layer to 2.5M-transaction churn models.
               </p>
               <div className="font-mono text-xs text-white/60 tracking-widest">MITS GWALIOR · CGPA 8.124 · IT 2027</div>
             </div>
@@ -99,11 +99,11 @@ function Index() {
                 I build <span className="text-[#00d4ff]">production ML</span> systems that ship.
               </h2>
               <p className="text-white/80 text-base leading-snug max-w-2xl backdrop-blur-sm">
-                I build production ML systems, not just notebooks. As a final year Information Technology student at MITS Gwalior, I spent a semester as an Undergraduate Research Assistant in the Department of Information Technology, where I shipped a two stage XGBoost pipeline hitting an R squared of 0.96 and a custom constraint algorithm that eliminated invalid predictions entirely.
+                I build production ML systems, not just notebooks. As a final year Information Technology student at MITS Gwalior, I'm an AI Engineer Intern (GenAI &amp; Agentic AI) at CogKnowEdge Solutions, where I've shipped 7+ hands-on RAG lab systems across Agentic RAG, Hybrid RAG, Graph RAG, MultiVector RAG, OCR RAG, and Vectorless RAG, deployed on GCP Cloud Run with Docker. I also spent a semester as an Undergraduate Research Assistant, where I shipped a two-stage XGBoost pipeline hitting an R² of 0.96 and a custom constraint algorithm that eliminated invalid predictions entirely.
                 <br /><br />
-                Most of my work lives across the full stack of a machine learning project. I clean and engineer features in Pandas, train boosted models with XGBoost and Scikit learn, then deploy everything behind FastAPI or Streamlit so it actually does something for someone. Lately I have been deep in hybrid retrieval and RAG systems, combining dense embeddings with keyword search and grounding LLM outputs in real data instead of letting them hallucinate.
+                Most of my work lives across the full stack of a machine learning project. I clean and engineer features in Pandas, train boosted models with XGBoost and Scikit-learn, then deploy them behind FastAPI or Streamlit so they actually do something for someone. Recently I've been deep in the AI harness layer — hybrid retrieval, graph RAG, vector databases, and grounding LLM outputs in real data instead of letting them hallucinate.
                 <br /><br />
-                CGPA 8.124. Best model R squared of 0.96. ROC AUC of 0.88 on a churn model trained across 2.5 million transactions. I would rather show you the dashboard than tell you about it.
+                CGPA 8.124. Best model R² of 0.96. ROC-AUC of 0.88 on a churn model trained across 2.5 million transactions. I would rather show you the dashboard than tell you about it.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-6">
                 {[{ k: "CGPA", v: "8.124" }, { k: "BEST R²", v: "0.96" }, { k: "ROC-AUC", v: "0.88" }, { k: "ROWS", v: "2.5M+" }].map((s) => (
@@ -123,24 +123,48 @@ function Index() {
         {/* RESEARCH */}
         <section id="research" className="relative z-10 min-h-screen flex items-center px-6 md:px-12 py-32">
           <div className="max-w-6xl mx-auto w-full grid md:grid-cols-12 gap-8">
-            <StickyLabel n="003" label="RESEARCH" />
+            <StickyLabel n="003" label="EXPERIENCE" />
             <Reveal className="md:col-span-8 space-y-6">
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent" />
-                <div className="text-white/50 font-mono text-xs mb-2">JAN — MAY 2026 · MITS GWALIOR</div>
-                <h3 className="text-3xl md:text-4xl font-semibold mb-2 tracking-tight">Undergraduate Research Assistant</h3>
-                <div className="text-white/60 mb-5 font-mono text-sm">Focus: ML for tabular data, feature engineering & LLM-grounded analytics</div>
-                <ul className="space-y-3 text-white/75">
-                  {[
+              {[
+                {
+                  when: "AUG — SEP 2026 · REMOTE",
+                  title: "AI Engineer Intern (GenAI & Agentic AI)",
+                  org: "CogKnowEdge Solutions",
+                  focus: "RAG systems, agentic AI & enterprise AI consulting",
+                  accent: "#a855f7",
+                  bullets: [
+                    "Designed and implemented 7+ hands-on RAG lab systems covering Agentic RAG, Hybrid RAG, Graph RAG, MultiVector RAG, OCR RAG, and Vectorless RAG using LangChain, LangGraph, Qdrant, and Neo4j.",
+                    "Deployed AI applications on GCP Cloud Run using Docker; integrated MongoDB Atlas Vector Search and Supabase (PostgreSQL) as backend datastores for AI workflows.",
+                    "Built prototypes using OpenAI, Claude, Gemini, and LangFlow across enterprise AI consulting use cases; developed hands-on AI labs and technical documentation for GenAI and Agentic AI training programs.",
+                  ],
+                },
+                {
+                  when: "JAN — MAY 2026 · MITS GWALIOR",
+                  title: "Undergraduate Research Assistant",
+                  org: "Madhav Institute of Technology & Science",
+                  focus: "ML for tabular data, feature engineering & LLM-grounded analytics",
+                  accent: "#00d4ff",
+                  bullets: [
                     "EDA over 50+ event marketing features; reduced model noise by 30% through correlation analysis and domain-informed feature selection.",
-                    "Two-stage XGBoost regressor (R²=0.96, RMSE 215.6 vs 1,452.3 baseline) with GridSearchCV hyperparameter tuning.",
-                    "Dynamic Physical Clamping algorithm enforces hard venue-capacity constraints at inference — zero invalid predictions on 100% of test cases.",
-                    "Integrated LLaMA-3.3-70B via Groq API for brand-event synergy scoring, deployed as a stateless FastAPI microservice with zero-trust key validation.",
-                  ].map((b) => (
-                    <li key={b} className="flex gap-3"><span className="text-[#00d4ff] font-mono shrink-0">▸</span><span>{b}</span></li>
-                  ))}
-                </ul>
-                <div className="mt-5 pt-5 border-t border-white/10 text-white/50 text-sm italic">
+                    "Two-stage XGBoost regressor (R²=0.96, RMSE 215.6 vs 1,452.3 baseline) with GridSearchCV hyperparameter tuning; Dynamic Physical Clamping enforces venue-capacity constraints at inference — zero invalid predictions.",
+                    "Integrated LLM APIs for semantic brand-event synergy scoring, generating structured JSON negotiation reports deployed as a stateless FastAPI microservice with zero-trust key validation.",
+                  ],
+                },
+              ].map((exp, i) => (
+                <div key={i} className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent" />
+                  <div className="text-white/50 font-mono text-xs mb-2">{exp.when} · {exp.org}</div>
+                  <h3 className="text-2xl md:text-3xl font-semibold mb-2 tracking-tight">{exp.title}</h3>
+                  <div className="text-white/60 mb-5 font-mono text-sm">Focus: {exp.focus}</div>
+                  <ul className="space-y-3 text-white/75">
+                    {exp.bullets.map((b) => (
+                      <li key={b} className="flex gap-3"><span className="text-[#00d4ff] font-mono shrink-0">▸</span><span>{b}</span></li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 relative overflow-hidden">
+                <div className="text-white/60 text-sm italic">
                   Academic report "SponsorWise: An AI-Powered Event Sponsorship Intelligence Platform" — approved and signed by faculty and Head of Department.
                 </div>
               </div>
@@ -276,9 +300,10 @@ function ScrollHint() {
 
 function RoleRotator() {
   const roles = [
-    { t: "DATA SCIENTIST", c: "#00d4ff" },
-    { t: "ML ENGINEER", c: "#22c55e" },
     { t: "AI ENGINEER", c: "#a855f7" },
+    { t: "ML ENGINEER", c: "#22c55e" },
+    { t: "RAG SPECIALIST", c: "#00d4ff" },
+    { t: "RESEARCH ASSISTANT", c: "#ff8c42" },
   ];
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -315,12 +340,13 @@ function RoleRotator() {
 function SkillsSection() {
   const groups = [
     { g: "LANGUAGES", c: "#00d4ff", icon: "{}", items: ["Python", "SQL", "TypeScript", "Java", "C / C++"] },
-    { g: "AI · LLM", c: "#a855f7", icon: "✦", items: ["RAG", "Vector Embeddings", "Sentence Transformers", "Prompt Engineering", "LLaMA-3.3-70B", "Groq API", "Hybrid Search (Dense + BM25)", "Pinecone", "Redis", "Whisper (Audio)", "Semantic Similarity"] },
+    { g: "AI · LLM", c: "#a855f7", icon: "✦", items: ["RAG", "LangChain", "LangGraph", "Agentic AI", "Hybrid RAG", "Graph RAG", "Vector Databases (Qdrant, Pinecone)", "Neo4j", "OpenAI", "Gemini", "Claude", "LangFlow", "Prompt Engineering", "LLM APIs", "Hybrid Search (Dense + BM25)", "MongoDB Atlas Vector Search", "Redis", "Semantic Similarity"] },
     { g: "ML · MODELLING", c: "#ff8c42", icon: "◆", items: ["Scikit-learn", "XGBoost", "Random Forest", "Gradient Boosting", "KMeans", "PCA", "SHAP", "SMOTE", "RFM Analysis", "Feature Engineering", "Hyperparameter Tuning", "A/B Testing", "Hypothesis Testing"] },
     { g: "DATA · ANALYTICS", c: "#22c55e", icon: "▤", items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "SciPy", "Statsmodels", "Excel"] },
     { g: "WEB · DEPLOYMENT", c: "#0ea5e9", icon: "▲", items: ["React 18", "Node.js", "Express.js", "FastAPI", "Pydantic V2", "MongoDB", "Socket.IO", "Streamlit", "REST APIs", "WebSockets", "JWT", "RBAC"] },
     { g: "COMPUTER VISION", c: "#f43f5e", icon: "◉", items: ["InsightFace (ArcFace)", "MediaPipe (468-pt Face Mesh)", "OpenCV", "face-api.js"] },
-    { g: "TOOLS", c: "#eab308", icon: "⚙", items: ["Git", "GitPython", "Docker (basic)", "Jupyter", "Google Colab", "Vercel", "Cloudinary CDN"] },
+    { g: "CLOUD · MLOPS", c: "#0ea5e9", icon: "☁", items: ["GCP Cloud Run", "Docker", "Supabase (PostgreSQL)", "Cloudinary CDN", "Vercel"] },
+    { g: "TOOLS", c: "#eab308", icon: "⚙", items: ["Git", "GitPython", "Docker", "Jupyter", "Google Colab", "Whisper (Audio)"] },
   ];
   return (
     <section id="skills" className="relative z-10 px-6 md:px-12 py-32">

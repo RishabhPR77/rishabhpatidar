@@ -2,12 +2,12 @@ import { SectionHeader } from './Skills';
 
 const achievements = [
   {
-    rank: '📜',
-    title: 'Mathematical Foundations of ML',
-    event: 'NPTEL Certification',
-    org: 'IIT Madras',
-    date: '2025 · Score: 73/100',
-    color: 'var(--cyan)',
+    rank: '🏆',
+    title: '1st Place',
+    event: "IKIGAI '26 National Hackathon",
+    org: 'Acropolis Institute of Technology and Research, Indore',
+    date: 'Aug 2026',
+    color: 'var(--amber)',
   },
   {
     rank: '🥈',
@@ -18,19 +18,19 @@ const achievements = [
     color: '#c0c0c0',
   },
   {
-    rank: '🏆',
+    rank: '📜',
+    title: 'Mathematical Foundations of ML',
+    event: 'NPTEL Certification',
+    org: 'IIT Madras',
+    date: '2026 · Score: 73/100',
+    color: 'var(--cyan)',
+  },
+  {
+    rank: '🏅',
     title: 'Top Performer - WebDev Track',
     event: 'Hacksagon',
     org: 'ABV IIITM Gwalior',
     date: 'Apr 2026',
-    color: 'var(--amber)',
-  },
-  {
-    rank: '🎯',
-    title: 'Finalist',
-    event: 'ABV-IIITM Hackatron',
-    org: 'ABV-IIITM × GitHub',
-    date: 'Oct 2025',
     color: 'var(--violet)',
   },
 ];

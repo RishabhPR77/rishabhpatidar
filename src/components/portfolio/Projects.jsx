@@ -38,17 +38,17 @@ const projects = [
     live: 'https://movie-success-predictor-xu2vnp53g3jg8a3pmrr3k3.streamlit.app/',
     thumbnail: '/thumbnails/cinemaiq.png',
     isPrivate: false,
-    tags: ['XGBoost', 'Scikit-learn', 'Streamlit', 'Plotly', 'Groq API', 'LLaMA 3.3'],
+    tags: ['XGBoost', 'Scikit-learn', 'Streamlit', 'Plotly', 'LLM APIs'],
     metrics: [
       { val: '5', label: 'Models Benchmarked' },
       { val: '30+', label: 'Domain Features' },
       { val: '3-Tab', label: 'Streamlit App' },
-      { val: 'LLaMA 3.3', label: 'AI Commentary' },
+      { val: 'LLM API', label: 'AI Commentary' },
     ],
     bullets: [
       'Designed novel actor, director, and composer power-indices from historical data using weighted aggregation and multi-hot genre encoding - creating 30+ domain-specific features for South Asian film revenue prediction.',
       'Benchmarked 5 regression models (Linear, Ridge, Random Forest, Gradient Boosting, XGBoost) with consistent train/val/test splits and log1p target transformation. Selected XGBoost on lowest RMSE.',
-      'Deployed a 3-tab Streamlit dashboard with Pessimistic/Base/Optimistic scenario forecasting, ROI gauges, and LLaMA 3.3-powered AI commentary via Groq API for non-technical stakeholders.',
+      'Deployed a 3-tab Streamlit dashboard with Pessimistic/Base/Optimistic scenario forecasting, ROI gauges, and LLM-powered AI commentary for non-technical stakeholders.',
     ],
   },
   {
@@ -86,7 +86,7 @@ const projects = [
     live: '',
     thumbnail: '/thumbnails/footfall.png',
     isPrivate: false,
-    tags: ['XGBoost', 'FastAPI', 'LLaMA-3.3-70B', 'Groq API', 'Pydantic V2'],
+    tags: ['XGBoost', 'FastAPI', 'LLM APIs', 'Pydantic V2'],
     metrics: [
       { val: 'R²=0.96', label: 'Model Accuracy' },
       { val: '50+', label: 'Features Analyzed' },
@@ -96,7 +96,7 @@ const projects = [
     bullets: [
       'Conducted end-to-end EDA on event marketing datasets (50+ features), identifying key footfall drivers via correlation analysis and domain-informed feature selection - reducing model noise by 30%.',
       'Built a two-stage XGBoost pipeline (R² = 0.96) with a Dynamic Physical Clamping algorithm enforcing venue-capacity constraints at inference, achieving zero physically invalid predictions.',
-      'Integrated LLaMA-3.3-70B via Groq API for semantic brand-event synergy scoring, generating structured JSON negotiation reports deployed as a stateless FastAPI microservice.',
+      'Integrated LLM APIs for semantic brand-event synergy scoring, generating structured JSON negotiation reports deployed as a stateless FastAPI microservice.',
     ],
   },
   {
@@ -110,16 +110,16 @@ const projects = [
     live: 'https://code-archaeology-rag.streamlit.app',
     thumbnail: '/thumbnails/code-arch.png',
     isPrivate: false,
-    tags: ['RAG', 'LLaMA-3.3-70B', 'Pinecone', 'NetworkX', 'Groq API', 'Streamlit', 'BGE Embeddings', 'BM25'],
+    tags: ['RAG', 'LLM APIs', 'Pinecone', 'NetworkX', 'Streamlit', 'BGE Embeddings', 'BM25'],
     metrics: [
       { val: '60/40', label: 'Dense/BM25 Hybrid' },
       { val: '6', label: 'Analysis Modes' },
-      { val: 'LLaMA 3.3', label: 'LLM Backend' },
+      { val: 'LLM API', label: 'LLM Backend' },
       { val: 'Multi-repo', label: 'Support' },
     ],
     bullets: [
       'Built a full RAG pipeline that ingests Git commit history via GitPython + GitHub API, embeds chunks with BAAI/bge-small-en-v1.5 into Pinecone per-repo namespaces - answering "why" questions over any public codebase in plain English.',
-      'Implemented hybrid search combining 60% dense vector retrieval and 40% BM25 keyword matching so exact function names and file paths are found alongside conceptual queries, with LLaMA-3.3-70B generating commit-cited grounded answers.',
+      'Implemented hybrid search combining 60% dense vector retrieval and 40% BM25 keyword matching so exact function names and file paths are found alongside conceptual queries, with LLM APIs generating commit-cited grounded answers.',
       'Deployed a 6-page Streamlit app (Ask, File Timeline, Hot Files, Co-Change Analysis, Author Breakdown, Multi-repo Ingest) powered by a NetworkX knowledge graph linking commits temporally across files.',
     ],
   },
