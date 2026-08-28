@@ -73,7 +73,7 @@ function Index() {
         {/* HERO */}
         <section className="relative z-10 min-h-screen flex flex-col justify-center px-6 md:px-12">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="max-w-6xl mx-auto w-full">
-            <div className="font-mono text-[11px] tracking-[0.4em] text-[#00d4ff] mb-6 flex items-center gap-3">
+            <div className="inline-flex items-center gap-3 rounded-full border border-[#00d4ff]/30 bg-[#00d4ff]/10 px-4 py-1.5 mb-0 text-[13px] tracking-[0.2em] text-[#00d4ff]">
               <span className="inline-block w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
               OPEN TO OPPORTUNITIES · AI ENGINEER
             </div>
