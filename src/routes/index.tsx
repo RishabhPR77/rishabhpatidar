@@ -246,7 +246,7 @@ function Index() {
 
 function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-12 py-5 backdrop-blur-md bg-black/40 border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-12 py-3 backdrop-blur-md bg-black/40 border-b border-white/5">
       <div className="font-mono text-xs tracking-[0.3em] text-white">RP<span className="text-[#00d4ff]">.</span></div>
       <div className="hidden md:flex gap-8 font-mono text-[11px] tracking-widest text-white/60">
         <a href="#about" className="hover:text-white transition">ABOUT</a>
