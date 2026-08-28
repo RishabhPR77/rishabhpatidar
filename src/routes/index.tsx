@@ -217,8 +217,8 @@ function Index() {
           <div className="max-w-6xl mx-auto w-full">
             <Reveal>
               <StickyLabel inline n="006" label="LET'S TALK" />
-              <h2 className="text-[clamp(2.5rem,10vw,8rem)] leading-[0.95] font-semibold tracking-[-0.02em] mt-4">
-                Building something <span className="italic font-light text-[#00d4ff]">data driven?</span>
+              <h2 className="text-[clamp(1.6rem,4.5vw,3.5rem)] leading-[1.1] font-semibold tracking-[-0.02em] mt-4">
+                Let's build something <span className="italic font-light text-[#00d4ff]">intelligent.</span>
               </h2>
               <p className="mt-6 text-white/60 max-w-lg text-lg">Open to internships, research collaborations, and full-time roles in Data Science & ML. Let's talk.</p>
             </Reveal>
