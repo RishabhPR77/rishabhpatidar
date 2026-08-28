@@ -286,12 +286,13 @@ export default function Hero({ goTo }) {
             {/* Status badge */}
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              background: 'rgba(0,212,255,0.04)', border: '1px solid rgba(0,212,255,0.15)',
-              padding: '0.35rem 1rem', borderRadius: '100px',
-              fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--cyan)',
-              letterSpacing: '0.06em', marginBottom: '2rem',
+              background: 'rgba(0,212,255,0.1)', border: '1px solid rgba(0,212,255,0.3)',
+              padding: '0.4rem 1.1rem', borderRadius: '100px',
+              fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--cyan)',
+              letterSpacing: '0.08em', marginBottom: '2rem',
               animation: 'fadeUp 0.6s ease 0.15s both',
               width: 'fit-content',
+              boxShadow: '0 0 12px rgba(0,212,255,0.08)',
             }}>
               <span style={{
                 width: '7px', height: '7px', borderRadius: '50%',
