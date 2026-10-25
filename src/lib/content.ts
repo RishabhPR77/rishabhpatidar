@@ -44,7 +44,6 @@ export const experience: Job[] = [
   {
     role: "ISE Intern",
     org: "MSG91",
-    orgUrl: "https://m91.msg91.com",
     place: "Indore, MP",
     period: "Oct 2026 — Present",
     current: true,
