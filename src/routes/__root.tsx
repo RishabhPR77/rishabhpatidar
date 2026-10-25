@@ -81,8 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Rishabh Patidar" },
       { name: "description", content: "Portfolio of Rishabh Patidar — Software Engineer, Backend & AI." },
       { name: "author", content: "Rishabh Patidar" },
-      { name: "theme-color", content: "#fbfaf8", media: "(prefers-color-scheme: light)" },
-      { name: "theme-color", content: "#0e0e10", media: "(prefers-color-scheme: dark)" },
+      { name: "theme-color", content: "#fbfaf8" },
       { property: "og:title", content: "Rishabh Patidar" },
       { property: "og:description", content: "Portfolio of Rishabh Patidar — Software Engineer, Backend & AI." },
       { property: "og:type", content: "website" },
@@ -102,15 +101,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-// Saved choice first, then the OS preference. Runs before React to avoid a light/dark flash.
-const themeScript = `try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}`;
-
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    // The inline script sets data-theme before first paint, so the server markup differs on purpose.
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <HeadContent />
       </head>
       <body>

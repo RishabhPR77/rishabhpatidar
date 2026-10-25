@@ -24,7 +24,7 @@ export const about = {
   facts: [
     { k: "Currently", v: "ISE Intern at MSG91" },
     { k: "Studying", v: "B.Tech IT, MITS Gwalior" },
-    { k: "CGPA", v: "8.12 / 10" },
+    { k: "CGPA", v: "8.12 / 10", count: 8.12 },
     { k: "Graduating", v: "May 2027" },
   ],
 };
@@ -32,7 +32,6 @@ export const about = {
 export type Job = {
   role: string;
   org: string;
-  orgUrl?: string;
   place: string;
   period: string;
   current?: boolean;
@@ -217,26 +216,36 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Cloud & Tools", items: ["Docker", "GCP Cloud Run", "Git", "GitHub", "Streamlit"] },
 ];
 
-export const achievements = [
+export const achievements: {
+  icon: "trophy" | "award" | "medal" | "cert";
+  title: string;
+  event: string;
+  where: string;
+  date: string;
+}[] = [
   {
+    icon: "trophy",
     title: "1st Place",
     event: "IKIGAI '26 National Hackathon",
     where: "AITR Indore",
     date: "Aug 2026",
   },
   {
+    icon: "award",
     title: "Top Performer, Web Dev Track",
     event: "Hacksagon",
     where: "ABV-IIITM Gwalior",
     date: "Apr 2026",
   },
   {
+    icon: "medal",
     title: "1st Runner-Up",
     event: "SSH '26 National Hackathon",
     where: "with team Tejaskrit",
     date: "Feb 2026",
   },
   {
+    icon: "cert",
     title: "NPTEL Certification",
     event: "Mathematical Foundations of ML",
     where: "IIT Madras · 73/100",

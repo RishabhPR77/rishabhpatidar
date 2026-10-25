@@ -9,9 +9,10 @@ I'm a final-year B.Tech IT student at MITS Gwalior and an ISE Intern at MSG91. I
 ## Features
 
 - Two-column layout on desktop: a pinned intro with a section index that highlights as you scroll. On phones it becomes a single column.
-- Light and dark themes that follow your system setting, with a manual toggle. The choice is remembered and there's no flash on load.
+- A light, minimal look: white cards that lift on hover with a soft spotlight following the cursor, and a faint glow that tracks the mouse on desktop.
+- Small motion details: the name animates in letter by letter, the experience timeline draws itself as you scroll, skills and lists stagger in, and the CGPA counts up. All animation turns off when the OS asks for reduced motion.
+- GitHub and LinkedIn buttons in each platform's own colors and logo.
 - A reading-progress bar and an estimated reading time.
-- Subtle reveal-on-scroll animations that turn off when the OS asks for reduced motion.
 - Copy-to-clipboard email button and a downloadable resume.
 - Server-rendered with TanStack Start for fast first paint and proper meta tags.
 
