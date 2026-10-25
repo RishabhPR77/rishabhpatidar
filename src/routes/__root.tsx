@@ -78,18 +78,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Rishabh Patidar" },
-      { name: "description", content: "Portfolio of Rishabh Patidar — AI Engineer & ML Engineer." },
+      { name: "description", content: "Portfolio of Rishabh Patidar — Software Engineer, Backend & AI." },
       { name: "author", content: "Rishabh Patidar" },
+      { name: "theme-color", content: "#fbfaf8", media: "(prefers-color-scheme: light)" },
+      { name: "theme-color", content: "#0e0e10", media: "(prefers-color-scheme: dark)" },
       { property: "og:title", content: "Rishabh Patidar" },
-      { property: "og:description", content: "Portfolio of Rishabh Patidar — AI Engineer & ML Engineer." },
+      { property: "og:description", content: "Portfolio of Rishabh Patidar — Software Engineer, Backend & AI." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -98,10 +101,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+// Saved choice first, then the OS preference. Runs before React to avoid a light/dark flash.
+const themeScript = `try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}`;
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    // The inline script sets data-theme before first paint, so the server markup differs on purpose.
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <HeadContent />
       </head>
       <body>
