@@ -90,24 +90,28 @@ export type Project = {
   thumb: string;
   github?: string;
   live?: string;
+  note?: string;
 };
 
 export const featured: Project[] = [
   {
     title: "Code Archaeologist",
-    kind: "Git history RAG",
+    kind: "Git history RAG platform",
     year: "2026",
+    badge: "Live in production",
     summary:
-      "Ask “why was this changed?” about any public GitHub repo and get an answer that cites the actual commits.",
+      "Ask why any code was written and get an answer grounded in the repo's own commits, pull requests and code reviews — plus file timelines, hot spots and who owns what.",
     points: [
-      "Ingests a repo's commit history, classifies each commit by developer intent, and keeps every user's embeddings in their own Pinecone namespace.",
-      "Hybrid retrieval: dense BGE embeddings fused with BM25 keyword search at 60/40, so exact function names and file paths still match.",
-      "Hardened the public demo with Redis-backed IP rate limiting, TTL-based cleanup and admin access control.",
+      "Multi-user web app that ingests a repo's commits, diffs, PRs and reviews, then answers “why was this written?” citing the source commit SHAs. Deployed as a Docker image on Render with Neon PostgreSQL and Pinecone.",
+      "Hybrid retrieval: Pinecone dense search plus BM25 reranking at 60/40, with per-user, per-repo namespaces. Ingestion runs as background jobs with live progress and commit-intent classification.",
+      "Bring your own model: adapters for 5 LLM providers (Anthropic, OpenAI, Gemini, Groq, OpenRouter) with live model discovery, and API keys encrypted at rest with Fernet.",
+      "Secured with httpOnly JWT sessions, bcrypt, GitHub App and Google OAuth (PKCE), email verification and per-IP rate limiting. Covered by 70 pytest tests, with Alembic migrations.",
     ],
-    stack: ["Python", "Pinecone", "Redis", "BGE", "BM25", "LLM APIs", "Streamlit"],
+    stack: ["Python", "FastAPI", "PostgreSQL", "Pinecone", "React", "TypeScript", "Docker"],
     thumb: "/thumbnails/code-arch.webp",
-    github: "https://github.com/RishabhPR77/code-archaeologist-demo",
-    live: "https://code-archaeology-rag.streamlit.app",
+    github: "https://github.com/RishabhPR77/code-archaeology-rag",
+    live: "https://code-archaeologist-a9ms.onrender.com/",
+    note: "Runs on Render's free tier, so the first visit can take about a minute to wake up.",
   },
   {
     title: "Tejaskrit",
@@ -187,16 +191,22 @@ export const otherProjects: Project[] = [
 export const skills: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["Python", "TypeScript", "SQL", "Java", "C/C++"] },
   {
-    group: "Backend",
+    group: "Backend & Web",
     items: [
       "FastAPI",
-      "REST APIs",
+      "SQLAlchemy",
       "Pydantic",
-      "Third-party API integration",
-      "Workflow automation",
+      "REST APIs",
+      "JWT & OAuth 2.0",
+      "React",
+      "API integrations",
+      "viaSocket plugins",
     ],
   },
-  { group: "Databases", items: ["PostgreSQL (Supabase)", "MongoDB (Atlas)", "Redis", "Neo4j"] },
+  {
+    group: "Databases",
+    items: ["PostgreSQL (Neon, Supabase)", "MongoDB (Atlas)", "SQLite", "Neo4j"],
+  },
   {
     group: "AI & LLMs",
     items: [
@@ -213,7 +223,10 @@ export const skills: { group: string; items: string[] }[] = [
     group: "ML & Data",
     items: ["Scikit-learn", "XGBoost", "SHAP", "Pandas", "NumPy", "OpenCV", "MediaPipe", "Whisper"],
   },
-  { group: "Cloud & Tools", items: ["Docker", "GCP Cloud Run", "Git", "GitHub", "Streamlit"] },
+  {
+    group: "Cloud & Tools",
+    items: ["Docker", "GCP Cloud Run", "Render", "Alembic", "pytest", "Git", "GitHub"],
+  },
 ];
 
 export const achievements: {

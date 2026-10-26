@@ -479,6 +479,7 @@ function ProjectLinks({ project: p }: { project: Project }) {
           Source code
         </PillLink>
       )}
+      {p.note && <p className="w-full text-xs text-ink-3">{p.note}</p>}
     </div>
   );
 }
