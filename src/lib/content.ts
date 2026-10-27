@@ -5,7 +5,7 @@ export const profile = {
   role: "Software Engineer · Backend & AI",
   tagline: "I build backend services, integrations and AI systems that hold up in production.",
   status: "Open to SDE & AI engineering roles",
-  now: { label: "ISE Intern", org: "MSG91" },
+  now: { label: "SDE Intern", org: "MSG91" },
   email: "rishabhpatidar400@gmail.com",
   phone: "+91 90987 29516",
   phoneHref: "tel:+919098729516",
@@ -17,12 +17,12 @@ export const profile = {
 
 export const about = {
   paragraphs: [
-    "I'm a final-year Information Technology student at MITS Gwalior and an ISE intern at MSG91, where I'm helping build M91 — an alerting platform that keeps escalating a critical notification through push, SMS and voice calls until a real person acknowledges it.",
+    "I'm a final-year Information Technology student at MITS Gwalior and an SDE intern at MSG91, where I'm helping build M91 — an alerting platform that keeps escalating a critical notification through push, SMS and voice calls until a real person acknowledges it.",
     "Before that, I built seven different kinds of RAG systems as an AI engineer intern at CogKnowEdge and shipped them on GCP Cloud Run. As a research assistant, I built an XGBoost pipeline that cut prediction error by 85% and never predicts something physically impossible.",
     "Most of my work sits where backend engineering meets AI: APIs and integrations, databases, retrieval, and LLMs that have to stay grounded in real data. I care about things that work outside a notebook, so most of the projects below come with a live demo.",
   ],
   facts: [
-    { k: "Currently", v: "ISE Intern at MSG91" },
+    { k: "Currently", v: "SDE Intern at MSG91" },
     { k: "Studying", v: "B.Tech IT, MITS Gwalior" },
     { k: "CGPA", v: "8.12 / 10", count: 8.12 },
     { k: "Graduating", v: "May 2027" },
@@ -41,7 +41,7 @@ export type Job = {
 
 export const experience: Job[] = [
   {
-    role: "ISE Intern",
+    role: "Software Development Engineer (SDE) Intern",
     org: "MSG91",
     place: "Indore, MP",
     period: "Oct 2026 — Present",
@@ -85,7 +85,7 @@ export type Project = {
   year: string;
   summary: string;
   points?: string[];
-  badge?: string;
+  badges?: string[];
   stack: string[];
   thumb: string;
   github?: string;
@@ -98,7 +98,7 @@ export const featured: Project[] = [
     title: "Code Archaeologist",
     kind: "Git history RAG platform",
     year: "2026",
-    badge: "Live in production",
+    badges: ["Live in production"],
     summary:
       "Ask why any code was written and get an answer grounded in the repo's own commits, pull requests and code reviews — plus file timelines, hot spots and who owns what.",
     points: [
@@ -115,26 +115,29 @@ export const featured: Project[] = [
   },
   {
     title: "Tejaskrit",
-    kind: "AI interview platform",
+    kind: "AI interview practice platform",
     year: "2026",
-    badge: "1st Runner-Up · SSH '26",
+    badges: ["Live in production", "1st Runner-Up · SSH '26"],
     summary:
-      "Practice interviews generated from a real job description, then a scorecard on what you said and how you said it.",
+      "Practice interviews written from a real job description and your resume, with follow-ups when you're vague — then a scored report on what you said, how you said it and how you came across.",
     points: [
-      "Team project. I worked on the adaptive LLM interview engine, which picks role-specific follow-up questions based on how well you answered.",
-      "Built the real-time pipeline that fuses Whisper speech transcription with MediaPipe video signals (gaze, presence) into one analysis.",
+      "Took our SSH '26 1st Runner-Up team project to production on Azure (Docker, Caddy HTTPS, PostgreSQL). It reads a JD and resume, generates role-tailored questions, and runs a video interview with adaptive follow-ups.",
+      "Built the per-answer pipeline: ffmpeg → speech-to-text and librosa audio signals (pace, fillers, pauses) → MediaPipe eye-contact and posture analysis → weighted rubric scoring and a hire / no-hire report.",
+      "Added passwordless email-code sign-in with rate limits, bring-your-own keys for 5 LLM providers, and database-persisted sessions. Tuned peak memory to about 550 MB so it runs on a 1 GB VM.",
     ],
     stack: [
       "Python",
       "FastAPI",
-      "OpenAI API",
-      "Whisper",
-      "MediaPipe",
-      "OpenCV",
       "React",
       "TypeScript",
+      "PostgreSQL",
+      "MediaPipe",
+      "Docker",
+      "Azure",
     ],
     thumb: "/thumbnails/ai-interview.webp",
+    github: "https://github.com/RishabhPR77/ai-interview",
+    live: "https://tejaskrit-rishabh.koreacentral.cloudapp.azure.com/",
   },
   {
     title: "Customer Segmentation & Churn",
@@ -221,11 +224,31 @@ export const skills: { group: string; items: string[] }[] = [
   },
   {
     group: "ML & Data",
-    items: ["Scikit-learn", "XGBoost", "SHAP", "Pandas", "NumPy", "OpenCV", "MediaPipe", "Whisper"],
+    items: [
+      "Scikit-learn",
+      "XGBoost",
+      "SHAP",
+      "Pandas",
+      "NumPy",
+      "OpenCV",
+      "MediaPipe",
+      "librosa",
+      "Whisper",
+    ],
   },
   {
     group: "Cloud & Tools",
-    items: ["Docker", "GCP Cloud Run", "Render", "Alembic", "pytest", "Git", "GitHub"],
+    items: [
+      "Docker",
+      "Azure VM",
+      "GCP Cloud Run",
+      "Render",
+      "Caddy",
+      "Alembic",
+      "pytest",
+      "Git",
+      "GitHub",
+    ],
   },
 ];
 

@@ -39,7 +39,7 @@ import {
 
 const title = "Rishabh Patidar — Software Engineer (Backend & AI)";
 const description =
-  "Rishabh Patidar is a software engineer building backend services, integrations and AI systems. ISE Intern at MSG91, previously AI Engineer Intern at CogKnowEdge. B.Tech IT, MITS Gwalior.";
+  "Rishabh Patidar is a software engineer building backend services, integrations and AI systems. SDE Intern at MSG91, previously AI Engineer Intern at CogKnowEdge. B.Tech IT, MITS Gwalior.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -445,11 +445,14 @@ function FeaturedProject({ project: p }: { project: Project }) {
         </p>
         <h3 className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xl font-semibold tracking-tight text-ink">
           {p.title}
-          {p.badge && (
-            <span className="rounded-full bg-brand-soft px-2.5 py-0.5 font-mono text-[11px] font-medium tracking-normal text-brand">
-              {p.badge}
+          {p.badges?.map((b) => (
+            <span
+              key={b}
+              className="rounded-full bg-brand-soft px-2.5 py-0.5 font-mono text-[11px] font-medium tracking-normal text-brand"
+            >
+              {b}
             </span>
-          )}
+          ))}
         </h3>
         <p className="mt-2 text-[17px] leading-relaxed text-ink">{p.summary}</p>
         {p.points && <Points items={p.points} />}
