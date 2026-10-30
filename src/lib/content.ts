@@ -100,12 +100,12 @@ export const featured: Project[] = [
     year: "2026",
     badges: ["Live in production"],
     summary:
-      "Ask why any code was written and get an answer grounded in the repo's own commits, pull requests and code reviews — plus file timelines, hot spots and who owns what.",
+      "Connect a GitHub repository and ask why any code was written, in plain English. Answers come from its commits, pull requests and code reviews, with links to the sources — plus file timelines, hot spots and who owns what.",
     points: [
-      "Multi-user web app that ingests a repo's commits, diffs, PRs and reviews, then answers “why was this written?” citing the source commit SHAs. Deployed as a Docker image on Render with Neon PostgreSQL and Pinecone.",
+      "Multi-user web app that ingests a repo's commits, diffs, PRs and reviews — public, or private through a read-only GitHub App — then answers “why was this written?” citing the source commit SHAs. Runs as one Docker container on Render with Neon PostgreSQL and Pinecone.",
       "Hybrid retrieval: Pinecone dense search plus BM25 reranking at 60/40, with per-user, per-repo namespaces. Ingestion runs as background jobs with live progress and commit-intent classification.",
       "Bring your own model: adapters for 5 LLM providers (Anthropic, OpenAI, Gemini, Groq, OpenRouter) with live model discovery, and API keys encrypted at rest with Fernet.",
-      "Secured with httpOnly JWT sessions, bcrypt, GitHub App and Google OAuth (PKCE), email verification and per-IP rate limiting. Covered by 70 pytest tests, with Alembic migrations.",
+      "Secured with httpOnly JWT sessions, bcrypt, GitHub App and Google OAuth (PKCE), email verification and per-IP rate limiting. Covered by 70+ pytest tests, with Alembic migrations.",
     ],
     stack: ["Python", "FastAPI", "PostgreSQL", "Pinecone", "React", "TypeScript", "Docker"],
     thumb: "/thumbnails/code-arch.webp",
@@ -122,7 +122,8 @@ export const featured: Project[] = [
       "Practice interviews written from a real job description and your resume, with follow-ups when you're vague — then a scored report on what you said, how you said it and how you came across.",
     points: [
       "Took our SSH '26 1st Runner-Up team project to production on Azure (Docker, Caddy HTTPS, PostgreSQL). It reads a JD and resume, generates role-tailored questions, and runs a video interview with adaptive follow-ups.",
-      "Built the per-answer pipeline: ffmpeg → speech-to-text and librosa audio signals (pace, fillers, pauses) → MediaPipe eye-contact and posture analysis → weighted rubric scoring and a hire / no-hire report.",
+      "Built a two-stage answer pipeline. A quick pass (ffmpeg, speech-to-text, librosa audio signals and a fast-model first estimate) picks the next question in seconds, then a low-priority background queue runs MediaPipe eye-contact and posture analysis and full rubric scoring.",
+      "The hire / no-hire report builds in the background with live progress, is emailed if you've left the page, and exports to PDF.",
       "Added passwordless email-code sign-in with rate limits, bring-your-own keys for 5 LLM providers, and database-persisted sessions. Tuned peak memory to about 550 MB so it runs on a 1 GB VM.",
     ],
     stack: [
