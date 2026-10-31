@@ -5,7 +5,7 @@ export const profile = {
   role: "Software Engineer · Backend & AI",
   tagline: "I build backend services, integrations and AI systems that hold up in production.",
   status: "Open to SDE & AI engineering roles",
-  now: { label: "SDE Intern", org: "MSG91" },
+  now: { label: "SDE Intern", org: "MSG91 (Walkover)" },
   email: "rishabhpatidar400@gmail.com",
   phone: "+91 90987 29516",
   phoneHref: "tel:+919098729516",
@@ -17,12 +17,12 @@ export const profile = {
 
 export const about = {
   paragraphs: [
-    "I'm a final-year Information Technology student at MITS Gwalior and an SDE intern at MSG91, where I'm helping build M91 — an alerting platform that keeps escalating a critical notification through push, SMS and voice calls until a real person acknowledges it.",
+    "I'm a final-year Information Technology student at MITS Gwalior and an SDE intern at MSG91 (Walkover), where I'm helping build M91 — an alerting platform that keeps escalating a critical notification through push, SMS and voice calls until a real person acknowledges it.",
     "Before that, I built seven different kinds of RAG systems as an AI engineer intern at CogKnowEdge and shipped them on GCP Cloud Run. As a research assistant, I built an XGBoost pipeline that cut prediction error by 85% and never predicts something physically impossible.",
     "Most of my work sits where backend engineering meets AI: APIs and integrations, databases, retrieval, and LLMs that have to stay grounded in real data. I care about things that work outside a notebook, so most of the projects below come with a live demo.",
   ],
   facts: [
-    { k: "Currently", v: "SDE Intern at MSG91" },
+    { k: "Currently", v: "SDE Intern at MSG91 (Walkover)" },
     { k: "Studying", v: "B.Tech IT, MITS Gwalior" },
     { k: "CGPA", v: "8.12 / 10", count: 8.12 },
     { k: "Graduating", v: "May 2027" },
@@ -42,14 +42,14 @@ export type Job = {
 export const experience: Job[] = [
   {
     role: "Software Development Engineer (SDE) Intern",
-    org: "MSG91",
+    org: "MSG91 (Walkover)",
     place: "Indore, MP",
     period: "Oct 2026 — Present",
     current: true,
     points: [
       "Co-building M91, a human-in-the-loop alert escalation platform that routes critical notifications through push, SMS and voice calls until someone acknowledges them. Shipped multiple alerting features to production.",
       "Built the M91 plugin for viaSocket, a no-code automation platform: actions to send, fetch and close direct and channel alerts and to manage channels and recipients — so events from 1,500+ apps can now trigger an M91 alert.",
-      "Wrote viaSocket plugins that integrate third-party apps through their APIs (triggers, actions and auth), plus automation workflows for MSG91's upcoming human-alert feature.",
+      "Wrote viaSocket plugins that integrate third-party apps through their APIs (triggers, actions and auth), plus automation workflows for the upcoming human-alert feature at MSG91 (Walkover).",
     ],
     stack: ["REST APIs", "Third-party integrations", "viaSocket", "Workflow automation"],
   },

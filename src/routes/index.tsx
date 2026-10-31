@@ -39,7 +39,7 @@ import {
 
 const title = "Rishabh Patidar — Software Engineer (Backend & AI)";
 const description =
-  "Rishabh Patidar is a software engineer building backend services, integrations and AI systems. SDE Intern at MSG91, previously AI Engineer Intern at CogKnowEdge. B.Tech IT, MITS Gwalior.";
+  "Rishabh Patidar is a software engineer building backend services, integrations and AI systems. SDE Intern at MSG91 (Walkover), previously AI Engineer Intern at CogKnowEdge. B.Tech IT, MITS Gwalior.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

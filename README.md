@@ -4,7 +4,7 @@ My personal site: a minimal, single-page portfolio covering my experience, proje
 
 **Live:** [rishabh.isonewho.codes](https://rishabh.isonewho.codes)
 
-I'm a final-year B.Tech IT student at MITS Gwalior and an SDE Intern at MSG91. I build backend services, integrations and AI systems.
+I'm a final-year B.Tech IT student at MITS Gwalior and an SDE Intern at MSG91 (Walkover). I build backend services, integrations and AI systems.
 
 ## Features
 
