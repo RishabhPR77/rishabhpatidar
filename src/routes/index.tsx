@@ -37,7 +37,7 @@ import {
   type Project,
 } from "@/lib/content";
 
-const title = "Rishabh Patidar — Software Engineer (Backend & AI)";
+const title = "Rishabh Patidar · Software Engineer (Backend & AI)";
 const description =
   "Rishabh Patidar is a software engineer building backend services, integrations and AI systems. SDE Intern at MSG91 (Walkover), previously AI Engineer Intern at CogKnowEdge. B.Tech IT, MITS Gwalior.";
 
@@ -593,9 +593,8 @@ function Contact() {
       </h3>
       <Reveal>
         <p className="mt-4 max-w-lg text-[17px] leading-relaxed text-ink-2">
-          I'm open to software engineering and AI engineering roles. If you're hiring, building
-          something interesting, or have a question about anything on this page, email is the best
-          way to reach me.
+          I'm looking for software and AI engineering roles. If you're hiring, or you just want to
+          talk about one of these projects, email is the easiest way to reach me.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <motion.a
@@ -643,7 +642,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-line pt-8 pb-4 text-sm text-ink-3">
-      <p className="text-ink">You made it to the end — thanks for reading.</p>
+      <p className="text-ink">You made it to the end. Thanks for reading.</p>
       <p className="mt-1">
         © 2026 {profile.name}. Designed and built with React, TanStack Start and Tailwind CSS.
       </p>

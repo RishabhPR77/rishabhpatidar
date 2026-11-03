@@ -3,7 +3,8 @@
 export const profile = {
   name: "Rishabh Patidar",
   role: "Software Engineer · Backend & AI",
-  tagline: "I build backend services, integrations and AI systems that hold up in production.",
+  tagline:
+    "I build backend systems and AI products, and I like putting them in front of real users.",
   status: "Open to SDE & AI engineering roles",
   now: { label: "SDE Intern", org: "MSG91 (Walkover)" },
   email: "rishabhpatidar400@gmail.com",
@@ -17,9 +18,9 @@ export const profile = {
 
 export const about = {
   paragraphs: [
-    "I'm a final-year Information Technology student at MITS Gwalior and an SDE intern at MSG91 (Walkover), where I'm helping build M91 — an alerting platform that keeps escalating a critical notification through push, SMS and voice calls until a real person acknowledges it.",
-    "Before that, I built seven different kinds of RAG systems as an AI engineer intern at CogKnowEdge and shipped them on GCP Cloud Run. As a research assistant, I built an XGBoost pipeline that cut prediction error by 85% and never predicts something physically impossible.",
-    "Most of my work sits where backend engineering meets AI: APIs and integrations, databases, retrieval, and LLMs that have to stay grounded in real data. I care about things that work outside a notebook, so most of the projects below come with a live demo.",
+    "I'm in my final year of B.Tech IT at MITS Gwalior, and right now I'm an SDE intern at MSG91 (Walkover). I work on M91, an alerting tool. When something critical breaks, it keeps sending push alerts, texts and calls until someone responds.",
+    "Before this I spent two months at CogKnowEdge building RAG systems, seven different kinds of them, and deploying them on GCP. Earlier in the year I was a research assistant at my college, where I built the ML models for SponsorWise. Later I turned that project into a real product people can sign up for and use.",
+    "Most of my work is on the backend, and lately a lot of it involves LLMs. I'd rather ship something than leave it in a notebook, so most projects below have a live link you can try.",
   ],
   facts: [
     { k: "Currently", v: "SDE Intern at MSG91 (Walkover)" },
@@ -44,11 +45,11 @@ export const experience: Job[] = [
     role: "Software Development Engineer (SDE) Intern",
     org: "MSG91 (Walkover)",
     place: "Indore, MP",
-    period: "Oct 2026 — Present",
+    period: "Oct 2026 – Present",
     current: true,
     points: [
       "Co-building M91, a human-in-the-loop alert escalation platform that routes critical notifications through push, SMS and voice calls until someone acknowledges them. Shipped multiple alerting features to production.",
-      "Built the M91 plugin for viaSocket, a no-code automation platform: actions to send, fetch and close direct and channel alerts and to manage channels and recipients — so events from 1,500+ apps can now trigger an M91 alert.",
+      "Built the M91 plugin for viaSocket, a no-code automation platform. It can send, fetch and close direct and channel alerts and manage channels and recipients, so events from 1,500+ apps can now trigger an M91 alert.",
       "Wrote viaSocket plugins that integrate third-party apps through their APIs (triggers, actions and auth), plus automation workflows for the upcoming human-alert feature at MSG91 (Walkover).",
     ],
     stack: ["REST APIs", "Third-party integrations", "viaSocket", "Workflow automation"],
@@ -57,9 +58,9 @@ export const experience: Job[] = [
     role: "AI Engineer Intern (GenAI & Agentic AI)",
     org: "CogKnowEdge Solutions",
     place: "Remote",
-    period: "Aug — Sep 2026",
+    period: "Aug – Sep 2026",
     points: [
-      "Designed and built 7+ RAG systems — Agentic, Hybrid, Graph, Multi-Vector, OCR and Vectorless RAG — with LangChain, LangGraph, Qdrant and Neo4j for enterprise GenAI training programs.",
+      "Designed and built 7+ RAG systems (Agentic, Hybrid, Graph, Multi-Vector, OCR and Vectorless) with LangChain, LangGraph, Qdrant and Neo4j for enterprise GenAI training programs.",
       "Containerised the apps with Docker and deployed them to GCP Cloud Run, backed by MongoDB Atlas Vector Search and Supabase (PostgreSQL).",
       "Prototyped LLM applications with OpenAI, Claude, Gemini and LangFlow for consulting use cases, and wrote the lab guides that go with them.",
     ],
@@ -69,13 +70,12 @@ export const experience: Job[] = [
     role: "Undergraduate Research Assistant",
     org: "Madhav Institute of Technology & Science",
     place: "Gwalior, MP",
-    period: "Jan — May 2026",
+    period: "Jan – May 2026",
     points: [
-      "Built a two-stage XGBoost regression pipeline (R² = 0.96) with 85% lower RMSE than the baseline (215.6 vs 1,452.3). A clamping step bounds every output to physical limits, so it never makes an invalid prediction.",
-      "Built a stateless FastAPI microservice that calls LLM APIs to score brand–event synergy and return structured JSON negotiation reports, validating an API key on every request.",
-      "Ran EDA on 50+ features; correlation-driven feature selection cut model noise by 30%.",
+      "Built SponsorWise's two-stage XGBoost pipeline on 70K rows and 67 engineered features: an attendance regressor (R² = 0.922) feeding a sponsorship-acceptance classifier (81% accuracy), tested on held-out events with grouped splits to prevent leakage.",
+      "Served the models from an API-key-protected FastAPI microservice that adds an LLM brand-fit score as a model feature and returns insights, negotiation points and outreach emails, with rule-based fallbacks if the LLM fails.",
     ],
-    stack: ["XGBoost", "FastAPI", "Pydantic", "LLM APIs", "Pandas"],
+    stack: ["XGBoost", "Scikit-learn", "FastAPI", "Pandas", "LLM APIs"],
   },
 ];
 
@@ -100,9 +100,9 @@ export const featured: Project[] = [
     year: "2026",
     badges: ["Live in production"],
     summary:
-      "Connect a GitHub repository and ask why any code was written, in plain English. Answers come from its commits, pull requests and code reviews, with links to the sources — plus file timelines, hot spots and who owns what.",
+      "Connect a GitHub repository and ask, in plain English, why any piece of code was written. Answers come from its commits, pull requests and code reviews, with links to the sources. It also shows file timelines, hot spots and who owns what.",
     points: [
-      "Multi-user web app that ingests a repo's commits, diffs, PRs and reviews — public, or private through a read-only GitHub App — then answers “why was this written?” citing the source commit SHAs. Runs as one Docker container on Render with Neon PostgreSQL and Pinecone.",
+      "A multi-user web app that ingests a repo's commits, diffs, PRs and reviews (public repos, or private ones through a read-only GitHub App), then answers “why was this written?” citing the source commit SHAs. It runs as one Docker container on Render with Neon PostgreSQL and Pinecone.",
       "Hybrid retrieval: Pinecone dense search plus BM25 reranking at 60/40, with per-user, per-repo namespaces. Ingestion runs as background jobs with live progress and commit-intent classification.",
       "Bring your own model: adapters for 5 LLM providers (Anthropic, OpenAI, Gemini, Groq, OpenRouter) with live model discovery, and API keys encrypted at rest with Fernet.",
       "Secured with httpOnly JWT sessions, bcrypt, GitHub App and Google OAuth (PKCE), email verification and per-IP rate limiting. Covered by 70+ pytest tests, with Alembic migrations.",
@@ -119,7 +119,7 @@ export const featured: Project[] = [
     year: "2026",
     badges: ["Live in production", "1st Runner-Up · SSH '26"],
     summary:
-      "Practice interviews written from a real job description and your resume, with follow-ups when you're vague — then a scored report on what you said, how you said it and how you came across.",
+      "Practice interviews written from a real job description and your resume. It follows up when you're vague, then gives you a scored report on what you said, how you said it and how you came across.",
     points: [
       "Took our SSH '26 1st Runner-Up team project to production on Azure (Docker, Caddy HTTPS, PostgreSQL). It reads a JD and resume, generates role-tailored questions, and runs a video interview with adaptive follow-ups.",
       "Built a two-stage answer pipeline. A quick pass (ffmpeg, speech-to-text, librosa audio signals and a fast-model first estimate) picks the next question in seconds, then a low-priority background queue runs MediaPipe eye-contact and posture analysis and full rubric scoring.",
@@ -146,12 +146,12 @@ export const featured: Project[] = [
     year: "2026",
     badges: ["Live in production"],
     summary:
-      "Helps event organizers in Madhya Pradesh find sponsors and helps brands decide which events are worth the money — with predicted turnout and deal odds, live negotiation, and the whole deal in one place.",
+      "Helps event organizers in Madhya Pradesh find sponsors and helps brands decide which events are worth the money. Both sides see predicted turnout and deal odds, then negotiate and close the deal in one place.",
     points: [
-      "Designed the two-stage XGBoost pipeline: stage one predicts attendance (R² 0.922 on held-out events), stage two predicts whether a sponsor will say yes (81% accuracy), trained on a ~70k-row synthetic dataset covering 25 MP cities.",
-      "An LLM (Groq) scores brand–event fit before the models run, then writes insights, negotiation points and an outreach email. Pure-Python fallbacks keep everything working without it.",
-      "Built with Sujal Hammad, who wrote the original backend. I took the platform to production: the React app on Vercel, the Node and FastAPI services on Render, and MongoDB Atlas, adding offers and counter-offers, real-time chat, live notifications and email alerts.",
-      "The ML service only answers the backend (API key), and the API adds rate limits, zod validation, trusted-origin checks and cron jobs that expire events and resolve stalled deals.",
+      "Designed the two-stage XGBoost pipeline on 70K synthetic rows and 67 engineered features: attendance regression (R² 0.922) feeding a sponsor-acceptance classifier (81% accuracy), tested on held-out events with grouped splits to prevent leakage.",
+      "An LLM (Groq) scores brand-event fit before the models run, then writes insights, negotiation points and an outreach email. Rule-based fallbacks keep everything working without it.",
+      "Took our research project to production with Sujal Hammad, who wrote the original backend: the React app on Vercel, the Node and FastAPI services on Render, and MongoDB Atlas. Organizers and sponsors negotiate with counter-offers, real-time Socket.IO chat, live notifications and email alerts.",
+      "Built the deal lifecycle in Express: two-sided confirmation, cancellation, and cron jobs that auto-confirm silent deals. Hardened the API with rate limits, input validation and content-checked uploads, with 0 npm audit vulnerabilities.",
     ],
     stack: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "FastAPI", "XGBoost", "Groq"],
     thumb: "/thumbnails/sponsorwise.webp",
@@ -198,17 +198,18 @@ export const otherProjects: Project[] = [
 ];
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: "Languages", items: ["Python", "TypeScript", "SQL", "Java", "C/C++"] },
+  { group: "Languages", items: ["Python", "TypeScript", "JavaScript", "SQL", "Java", "C/C++"] },
   {
     group: "Backend & Web",
     items: [
       "FastAPI",
+      "Node.js",
+      "Express",
+      "Socket.IO",
       "SQLAlchemy",
-      "Pydantic",
       "REST APIs",
       "JWT & OAuth 2.0",
       "React",
-      "API integrations",
       "viaSocket plugins",
     ],
   },
@@ -233,7 +234,6 @@ export const skills: { group: string; items: string[] }[] = [
     items: [
       "Scikit-learn",
       "XGBoost",
-      "SHAP",
       "Pandas",
       "NumPy",
       "OpenCV",

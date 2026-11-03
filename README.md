@@ -1,4 +1,4 @@
-# Rishabh Patidar — Portfolio
+# Rishabh Patidar's Portfolio
 
 My personal site: a minimal, single-page portfolio covering my experience, projects, skills and achievements.
 
