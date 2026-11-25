@@ -476,6 +476,7 @@ function ProjectLinks({ project: p }: { project: Project }) {
           Live demo
         </PillLink>
       )}
+      {p.liveBackup && <PillLink href={p.liveBackup}>Backup demo (Azure)</PillLink>}
       {p.github && (
         <PillLink href={p.github}>
           <GithubMark className="h-3.5 w-3.5" />

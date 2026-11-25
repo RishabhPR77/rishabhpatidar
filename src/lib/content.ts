@@ -90,6 +90,7 @@ export type Project = {
   thumb: string;
   github?: string;
   live?: string;
+  liveBackup?: string;
   note?: string;
 };
 
@@ -120,7 +121,8 @@ export const featured: Project[] = [
     thumb: "/thumbnails/code-arch.webp",
     github: "https://github.com/RishabhPR77/code-archaeology-rag",
     live: "https://code-archaeologist-a9ms.onrender.com/",
-    note: "The live demo opens a sample repo with no sign-up. It runs on Render's free tier, so the first visit can take about a minute to wake up.",
+    liveBackup: "https://codearch.20-2-69-168.sslip.io/",
+    note: "The main demo runs on Render's free tier, which can take a minute to wake up or be paused at the end of the month. If it doesn't load, use the backup on Azure. Both open a sample repo with no sign-up.",
   },
   {
     title: "Tejaskrit",
